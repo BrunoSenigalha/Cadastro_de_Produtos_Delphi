@@ -1,0 +1,19 @@
+object dmConexoes: TdmConexoes
+  Height = 1080
+  Width = 1440
+  PixelsPerInch = 144
+  object ADOConnection1: TADOConnection
+    ConnectionString = 
+      'Provider=MSDASQL.1;Password=root;Persist Security Info=True;User' +
+      ' ID=root;Data Source=root@localhost:3306'
+    LoginPrompt = False
+    Provider = 'MSDASQL.1'
+    Left = 160
+    Top = 112
+  end
+  object ADOQuery1: TADOQuery
+    Parameters = <>
+    Left = 264
+    Top = 296
+  end
+end

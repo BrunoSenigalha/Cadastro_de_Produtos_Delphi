@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2024/11/25 16:29:13.000.174,=C:\Users\Accesys\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/11/26 11:48:23.000.344,=C:\Users\Accesys\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/11/26 11:49:07.000.403,=C:\Users\Accesys\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2024/11/26 12:06:58.000.223,C:\importaMargem\UnitPrincipal.dfm=C:\Users\Accesys\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2024/11/26 12:06:58.000.223,C:\importaMargem\UnitPrincipal.pas=C:\Users\Accesys\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/11/26 12:07:25.000.859,C:\importaMargem\UnitConexoes.dfm=C:\Users\Accesys\Documents\Embarcadero\Studio\Projects\Unit2.dfm</Transaction>
+    <Transaction>2024/11/26 12:07:25.000.859,C:\importaMargem\UnitConexoes.pas=C:\Users\Accesys\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2024/11/26 12:07:39.000.246,C:\importaMargem\AccMargem.dproj=C:\Users\Accesys\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2024/12/14 07:40:09.107,C:\Users\brsen\Documents\Embarcadero\Studio\Projects\Cadastro_de_Produtos\CadastroProdutos.dproj=C:\Users\brsen\Documents\Embarcadero\Studio\Projects\importaMargem\AccMargem.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

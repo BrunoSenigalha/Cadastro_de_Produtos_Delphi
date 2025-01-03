@@ -1,0 +1,17 @@
+unit uInserirProduto;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Vcl.Controls, Vcl.Forms, Vcl.StdCtrls;
+
+procedure InserirProdutos(codBarras, descricao, grupo, marca: String;
+  preco: Double; quantidade: Integer);
+
+implementation
+  procedure InserirProdutos(codBarras, descricao, grupo, marca: String;
+  preco: Double; quantidade: Integer);
+  begin
+
+  end;
+end.

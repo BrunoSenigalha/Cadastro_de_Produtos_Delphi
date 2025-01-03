@@ -1,0 +1,45 @@
+unit uValidacaoCampos;
+
+interface
+
+  uses
+     System.SysUtils, System.Classes, Vcl.StdCtrls, Vcl.Dialogs, System.Character,
+     System.Generics.Collections;
+
+function ValidarEntradaNumerica(var Key: Char): string;
+//function VerificaCampoVazio(const Campo: TEdit): string;
+function VerificaCampoVazio(const ListaCampos: TList<TEdit>): TEdit;
+
+implementation
+
+function ValidarEntradaNumerica(var Key: Char): string;
+begin
+  // Permitir teclas de controle como Backspace
+   if CharInSet(Key, [#8]) then Exit;
+
+  // Permitir apenas números (0 a 9)
+  if not CharInSet(Key, ['0'..'9']) then
+   begin
+      Key := #0; //Cancela a entrada
+      Result:= 'Insira apenas numeros';
+   end;
+end;
+
+function VerificaCampoVazio(const ListaCampos: TList<TEdit>): TEdit;
+  var
+  texto: string;
+  Campo: TEdit;
+  I: Integer;
+begin
+  for Campo in ListaCampos do
+  begin
+     texto:= Campo.Text;
+     if texto.Trim.IsEmpty then
+     begin
+       Result:= Campo;
+       Exit;
+     end;
+  end;
+end;
+
+end.

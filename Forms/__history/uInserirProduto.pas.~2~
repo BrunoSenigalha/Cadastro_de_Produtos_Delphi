@@ -1,0 +1,13 @@
+unit uInserirProduto;
+
+interface
+
+uses
+  System.SysUtils, System.Classes;
+
+procedure InserirProdutos(codBarras, descricao, grupo, marca: String;
+  preco: Double; quantidade: Integer);
+
+implementation
+
+end.

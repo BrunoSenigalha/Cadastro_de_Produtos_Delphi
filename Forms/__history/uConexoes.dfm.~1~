@@ -1,0 +1,9 @@
+object DataModule1: TDataModule1
+  Height = 1080
+  Width = 1440
+  PixelsPerInch = 144
+  object ADOConnection1: TADOConnection
+    Left = 160
+    Top = 112
+  end
+end

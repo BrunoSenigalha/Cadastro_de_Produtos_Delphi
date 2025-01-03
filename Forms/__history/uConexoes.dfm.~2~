@@ -1,0 +1,14 @@
+object dmConexoes: TdmConexoes
+  Height = 1080
+  Width = 1440
+  PixelsPerInch = 144
+  object ADOConnection1: TADOConnection
+    Left = 160
+    Top = 112
+  end
+  object ADOQuery1: TADOQuery
+    Parameters = <>
+    Left = 264
+    Top = 296
+  end
+end
