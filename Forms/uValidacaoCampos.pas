@@ -4,12 +4,13 @@ interface
 
   uses
      System.SysUtils, System.Classes, Vcl.StdCtrls, Vcl.Dialogs, System.Character,
-     System.Generics.Collections;
+     System.Generics.Collections, Vcl.Forms;
 
 function ValidarEntradaNumerica(var Key: Char): string;
 function VerificaCampoVazio(const ListaCampos: TList<TEdit>): String;
 function CriarMensagemDeErro(const Campo: TEdit): String;
-function ValidarTodosOsCampos(const ListaCampos: TList<TEdit>): Boolean;
+procedure LimparTodosEdits(Form: TForm);
+//function ValidarTodosOsCampos(const ListaCampos: TList<TEdit>): string;
 //function RetornarMensagemDeErro(const MsgErro: String): String;
 
 implementation
@@ -75,23 +76,31 @@ begin
 
 end;
 
-function ValidarTodosOsCampos(const ListaCampos: TList<TEdit>): Boolean;
- var
-  MsgErro: string;
-
+procedure LimparTodosEdits(Form: TForm);
+var
+  I: Integer;
 begin
-   try
-    MsgErro:= VerificaCampoVazio(ListaCampos);
-    if Trim(MsgErro) = '' then
-      Result:= True
-    else
-      Result:= False;
-
-   finally
-    ListaCampos.Free;
-
-   end;
+  for I := 0 to Form.ComponentCount -1 do
+  begin
+    if Form.Components[I] is TEdit then
+      TEdit(Form.Components[I]).Text:= '';
+  end;
 end;
+
+//function ValidarTodosOsCampos(const ListaCampos: TList<TEdit>): string;
+// var
+//  MsgErro: string;
+//
+//begin
+//   try
+//    MsgErro:= VerificaCampoVazio(ListaCampos);
+//    Result:= MsgErro;
+//
+//   finally
+//    ListaCampos.Free;
+//
+//   end;
+//end;
 
 //function RetornarMensagemDeErro(const MsgErro: String): String;
 //begin

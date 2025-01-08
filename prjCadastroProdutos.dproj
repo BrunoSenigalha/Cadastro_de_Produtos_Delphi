@@ -4,7 +4,7 @@
         <ProjectVersion>20.1</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">Debug</Config>
+        <Config Condition="'$(Config)'==''">Release</Config>
         <Platform Condition="'$(Platform)'==''">Win64</Platform>
         <ProjectName Condition="'$(ProjectName)'==''">prjCadastroProdutos</ProjectName>
         <TargetedPlatforms>3</TargetedPlatforms>
@@ -131,11 +131,24 @@
         </DCCReference>
         <DCCReference Include="Forms\uConexoes.pas">
             <Form>dmConexoes</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="Forms\uGerenciarProduto.pas"/>
+        <DCCReference Include="Forms\uGerenciarProduto.pas">
+            <Form>$R *.res</Form>
+        </DCCReference>
         <DCCReference Include="Forms\uValidacaoCampos.pas"/>
+        <DCCReference Include="Forms\uCadastroProdutos.pas">
+            <Form>frmCadastroProdutos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\uCadastroGrupos.pas">
+            <Form>frmCadastroGrupos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\uCadastroProdutosReformulado.pas">
+            <Form>CadastroProdutosRef</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -174,9 +187,9 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Win64\Debug\prjCadastroProdutos.rsm" Configuration="Debug" Class="DebugSymbols">
+                <DeployFile LocalName="Win64\Release\prjCadastroProdutos.exe" Configuration="Release" Class="ProjectOutput">
                     <Platform Name="Win64">
-                        <RemoteName>prjCadastroProdutos.rsm</RemoteName>
+                        <RemoteName>prjCadastroProdutos.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

@@ -3,9 +3,9 @@ object frmCadastroProdutos: TfrmCadastroProdutos
   Top = 0
   Cursor = crArrow
   Caption = 'Cadastro de Produtos'
-  ClientHeight = 496
-  ClientWidth = 1036
-  Color = clBtnFace
+  ClientHeight = 936
+  ClientWidth = 1265
+  Color = clSilver
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
@@ -94,11 +94,10 @@ object frmCadastroProdutos: TfrmCadastroProdutos
   object pnBotoes: TPanel
     Left = 0
     Top = 105
-    Width = 1036
+    Width = 1265
     Height = 56
     Align = alTop
     TabOrder = 0
-    ExplicitWidth = 1241
     object sbutton_salvar: TSpeedButton
       Left = 512
       Top = 6
@@ -403,6 +402,7 @@ object frmCadastroProdutos: TfrmCadastroProdutos
         0000000000000000000000000000000000000000000000000000000000000000
         000000000000}
       ParentFont = False
+      OnClick = sbutton_salvarClick
     end
     object sbutton_incluir: TSpeedButton
       Left = 0
@@ -1014,6 +1014,7 @@ object frmCadastroProdutos: TfrmCadastroProdutos
         0000000000000000000000000000000000000000000000000000000000000000
         000000000000}
       ParentFont = False
+      OnClick = sbutton_excluirClick
     end
     object sbutton_alterar: TSpeedButton
       Left = 318
@@ -1624,6 +1625,7 @@ object frmCadastroProdutos: TfrmCadastroProdutos
         0000000000000000000000000000000000000000000000000000000000000000
         000000000000}
       ParentFont = False
+      OnClick = sbutton_cancelarClick
     end
   end
   object ed_codbarras: TEdit
@@ -1656,11 +1658,10 @@ object frmCadastroProdutos: TfrmCadastroProdutos
   object pnSuperior: TPanel
     Left = 0
     Top = 0
-    Width = 1036
+    Width = 1265
     Height = 105
     Align = alTop
     TabOrder = 3
-    ExplicitWidth = 1241
     object sbtn_pesquisar: TSpeedButton
       Left = 8
       Top = 10
@@ -5833,13 +5834,11 @@ object frmCadastroProdutos: TfrmCadastroProdutos
   end
   object pnErros: TPanel
     Left = 0
-    Top = 435
-    Width = 1036
+    Top = 875
+    Width = 1265
     Height = 61
     Align = alBottom
     TabOrder = 8
-    ExplicitTop = 855
-    ExplicitWidth = 1241
     object lb_erros: TLabel
       Left = 264
       Top = 16
@@ -5852,5 +5851,9 @@ object frmCadastroProdutos: TfrmCadastroProdutos
       Font.Style = [fsBold]
       ParentFont = False
     end
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 912
+    Top = 296
   end
 end
