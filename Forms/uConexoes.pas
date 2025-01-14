@@ -10,10 +10,6 @@ type
     SQLServerConnection: TADOConnection;
     qrProdutos: TADOQuery;
     qrGrupos: TADOQuery;
-    qrGruposIDGrupo: TIntegerField;
-    qrGruposGrupoDescricao: TStringField;
-    qrGruposGrupoMaior18: TBooleanField;
-    qrGruposGrupoInativo: TBooleanField;
     qrProdutosIDProduto: TAutoIncField;
     qrProdutosCodBarras: TStringField;
     qrProdutosProdDescricao: TStringField;
@@ -22,6 +18,21 @@ type
     qrProdutosProdPreco: TBCDField;
     qrProdutosProdQuantidade: TIntegerField;
     qrProdutosProdInativo: TBooleanField;
+    qrMarcas: TADOQuery;
+    qrGruposIDGrupo: TAutoIncField;
+    qrGruposGrupoDescricao: TStringField;
+    qrGruposGrupoMaior18: TBooleanField;
+    qrGruposGrupoInativo: TBooleanField;
+    qrComando: TADOQuery;
+    qrProdutosGrid: TADOQuery;
+    AutoIncField1: TAutoIncField;
+    StringField1: TStringField;
+    StringField2: TStringField;
+    IntegerField1: TIntegerField;
+    IntegerField2: TIntegerField;
+    BCDField1: TBCDField;
+    IntegerField3: TIntegerField;
+    BooleanField1: TBooleanField;
   private
     { Private declarations }
   public

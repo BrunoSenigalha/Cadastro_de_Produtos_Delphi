@@ -1,0 +1,42 @@
+unit uConexoes;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.DB, Data.Win.ADODB;
+
+type
+  TdmConexoes = class(TDataModule)
+    SQLServerConnection: TADOConnection;
+    qrProdutos: TADOQuery;
+    qrGrupos: TADOQuery;
+    qrProdutosIDProduto: TAutoIncField;
+    qrProdutosCodBarras: TStringField;
+    qrProdutosProdDescricao: TStringField;
+    qrProdutosProdGrupo: TIntegerField;
+    qrProdutosProdMarca: TIntegerField;
+    qrProdutosProdPreco: TBCDField;
+    qrProdutosProdQuantidade: TIntegerField;
+    qrProdutosProdInativo: TBooleanField;
+    qrMarcas: TADOQuery;
+    qrGruposIDGrupo: TAutoIncField;
+    qrGruposGrupoDescricao: TStringField;
+    qrGruposGrupoMaior18: TBooleanField;
+    qrGruposGrupoInativo: TBooleanField;
+    qrComando: TADOQuery;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  dmConexoes: TdmConexoes;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+end.

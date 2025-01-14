@@ -2,8 +2,8 @@ object frmMain: TfrmMain
   Left = 0
   Top = 0
   Caption = 'Produtos'
-  ClientHeight = 433
-  ClientWidth = 795
+  ClientHeight = 379
+  ClientWidth = 694
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -2189,6 +2189,10 @@ object frmMain: TfrmMain
       object Produtos21: TMenuItem
         Caption = 'Produtos 2'
         OnClick = Produtos21Click
+      end
+      object Teste: TMenuItem
+        Caption = 'Teste'
+        OnClick = TesteClick
       end
     end
     object Sair1: TMenuItem

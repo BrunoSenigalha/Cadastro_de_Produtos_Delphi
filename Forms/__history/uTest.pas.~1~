@@ -1,0 +1,19 @@
+unit uTest;
+
+interface
+  uses
+    uConexoes;
+
+implementation
+
+procedure TestExtensions;
+begin
+  with dmConexoes do
+  begin
+     qrGrupos.Close;
+     qrGrupos.SQL.Clear;
+     qrGrupos.SQL.Add('SELECT * FROM GRUPOS');
+
+  end;
+end;
+end.

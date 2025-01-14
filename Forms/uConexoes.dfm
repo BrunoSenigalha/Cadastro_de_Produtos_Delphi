@@ -1,7 +1,7 @@
 object dmConexoes: TdmConexoes
-  Height = 728
-  Width = 923
-  PixelsPerInch = 168
+  Height = 624
+  Width = 791
+  PixelsPerInch = 144
   object SQLServerConnection: TADOConnection
     Connected = True
     ConnectionString = 
@@ -10,17 +10,18 @@ object dmConexoes: TdmConexoes
       'E'
     LoginPrompt = False
     Provider = 'SQLOLEDB.1'
-    Left = 187
-    Top = 131
+    Left = 160
+    Top = 112
   end
   object qrProdutos: TADOQuery
+    Active = True
     Connection = SQLServerConnection
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (
       'SELECT * FROM PRODUTOS')
-    Left = 187
-    Top = 317
+    Left = 160
+    Top = 272
     object qrProdutosIDProduto: TAutoIncField
       FieldName = 'IDProduto'
       ReadOnly = True
@@ -58,10 +59,11 @@ object dmConexoes: TdmConexoes
     Parameters = <>
     SQL.Strings = (
       'SELECT * FROM GRUPOS')
-    Left = 177
-    Top = 439
-    object qrGruposIDGrupo: TIntegerField
+    Left = 152
+    Top = 376
+    object qrGruposIDGrupo: TAutoIncField
       FieldName = 'IDGrupo'
+      ReadOnly = True
     end
     object qrGruposGrupoDescricao: TStringField
       FieldName = 'GrupoDescricao'
@@ -72,6 +74,65 @@ object dmConexoes: TdmConexoes
     end
     object qrGruposGrupoInativo: TBooleanField
       FieldName = 'GrupoInativo'
+    end
+  end
+  object qrMarcas: TADOQuery
+    Active = True
+    Connection = SQLServerConnection
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'SELECT * FROM MARCAS')
+    Left = 261
+    Top = 377
+  end
+  object qrComando: TADOQuery
+    Active = True
+    Connection = SQLServerConnection
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'SELECT * FROM GRUPOS')
+    Left = 416
+    Top = 376
+  end
+  object qrProdutosGrid: TADOQuery
+    Active = True
+    Connection = SQLServerConnection
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'SELECT * FROM PRODUTOS')
+    Left = 304
+    Top = 272
+    object AutoIncField1: TAutoIncField
+      FieldName = 'IDProduto'
+      ReadOnly = True
+    end
+    object StringField1: TStringField
+      FieldName = 'CodBarras'
+      Size = 13
+    end
+    object StringField2: TStringField
+      FieldName = 'ProdDescricao'
+      Size = 255
+    end
+    object IntegerField1: TIntegerField
+      FieldName = 'ProdGrupo'
+    end
+    object IntegerField2: TIntegerField
+      FieldName = 'ProdMarca'
+    end
+    object BCDField1: TBCDField
+      FieldName = 'ProdPreco'
+      Precision = 5
+      Size = 2
+    end
+    object IntegerField3: TIntegerField
+      FieldName = 'ProdQuantidade'
+    end
+    object BooleanField1: TBooleanField
+      FieldName = 'ProdInativo'
     end
   end
 end

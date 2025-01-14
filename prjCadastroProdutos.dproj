@@ -129,10 +129,6 @@
             <Form>frmMain</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Forms\uConexoes.pas">
-            <Form>dmConexoes</Form>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
         <DCCReference Include="Forms\uGerenciarProduto.pas">
             <Form>$R *.res</Form>
         </DCCReference>
@@ -148,6 +144,12 @@
         <DCCReference Include="Forms\uCadastroProdutosReformulado.pas">
             <Form>CadastroProdutosRef</Form>
             <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\uTest.pas"/>
+        <DCCReference Include="Forms\uConexoes.pas">
+            <Form>dmConexoes</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
