@@ -5,22 +5,30 @@ interface
 uses
    Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Menus, uCadastroProdutos,
-  uConexoes; // Adicionado uConexoes para acesso ao DataModule
+  uConexoes, Vcl.Imaging.jpeg; // Adicionado uConexoes para acesso ao DataModule
 
 type
   TfrmMain = class(TForm)
     MenuProdutos: TMainMenu;
     Produtos1: TMenuItem;
-    Produtos2: TMenuItem;
     Sair1: TMenuItem;
     Grupo1: TMenuItem;
     Produtos21: TMenuItem;
-    Teste: TMenuItem;
+    Image1: TImage;
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Panel3: TPanel;
+    Panel4: TPanel;
+    Consu1: TMenuItem;
+    Produtos2: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure Produtos2Click(Sender: TObject);
     procedure Grupo1Click(Sender: TObject);
     procedure Produtos21Click(Sender: TObject);
     procedure TesteClick(Sender: TObject);
+    procedure Panel1MouseEnter(Sender: TObject);
+    procedure Sair1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
 
     { Private declarations }
@@ -81,6 +89,14 @@ begin
 
 end;
 
+procedure TfrmMain.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  if Application.MessageBox('Deseja realmente sair? ', 'AVISO', MB_YESNO+MB_ICONQUESTION) = IDNO then
+     Action := caNone
+  else
+    Action := caFree;
+end;
+
 procedure TfrmMain.FormCreate(Sender: TObject);
 begin
    frmMain.Color:= ConverterRGB(189, 202, 226);
@@ -92,6 +108,19 @@ begin
   frmCadastroGrupos.ShowModal;
   frmCadastroGrupos.Free;
 end;
+
+procedure TfrmMain.Panel1MouseEnter(Sender: TObject);
+begin
+  case TPanel(Sender).Color of
+    clBlack: TPanel(Sender).Color  := clMaroon;
+    clMaroon: TPanel(Sender).Color := clGreen;
+    clGreen: TPanel(Sender).Color  := clOlive;
+    clOlive: TPanel(Sender).Color  := clBlack;
+    else
+      TPanel(Sender).Color := clWhite;
+  end;
+end;
+
 
 procedure TfrmMain.Produtos21Click(Sender: TObject);
 begin
@@ -108,4 +137,8 @@ begin
   frmCadastroProdutos.Free;
 end;
 
+procedure TfrmMain.Sair1Click(Sender: TObject);
+begin
+  Close;
+end;
 end.

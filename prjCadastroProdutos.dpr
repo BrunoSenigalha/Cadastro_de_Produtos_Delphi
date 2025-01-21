@@ -8,8 +8,10 @@ uses
   uCadastroProdutos in 'Forms\uCadastroProdutos.pas' {frmCadastroProdutos},
   uCadastroGrupos in 'Forms\uCadastroGrupos.pas' {frmCadastroGrupos},
   uCadastroProdutosReformulado in 'Forms\uCadastroProdutosReformulado.pas' {CadastroProdutosRef},
-  uTest in 'Forms\uTest.pas',
-  uConexoes in 'Forms\uConexoes.pas' {dmConexoes: TDataModule};
+  uConexoes in 'Forms\uConexoes.pas' {dmConexoes: TDataModule},
+  uGerenciaGrupos in 'Forms\uGerenciaGrupos.pas',
+  uGerenciaMarcas in 'Forms\uGerenciaMarcas.pas',
+  uCadastroMarcas in 'Forms\uCadastroMarcas.pas' {Form1};
 
 {$R *.res}
 
@@ -23,5 +25,6 @@ begin
   Application.CreateForm(TfrmCadastroGrupos, frmCadastroGrupos);
   Application.CreateForm(TCadastroProdutosRef, CadastroProdutosRef);
   Application.CreateForm(TdmConexoes, dmConexoes);
+  Application.CreateForm(TForm1, Form1);
   Application.Run;
 end.

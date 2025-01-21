@@ -1,0 +1,9 @@
+unit uGerenciaGrupos;
+
+interface
+  uses
+    System.SysUtils, System.Classes, Vcl.Controls, Vcl.Forms, Vcl.StdCtrls,
+    Data.Win.ADODB, Data.DB, uConexoes, Winapi.Windows;
+implementation
+
+end.

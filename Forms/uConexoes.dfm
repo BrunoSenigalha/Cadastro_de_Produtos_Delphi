@@ -1,7 +1,7 @@
 object dmConexoes: TdmConexoes
-  Height = 624
-  Width = 791
-  PixelsPerInch = 144
+  Height = 728
+  Width = 923
+  PixelsPerInch = 168
   object SQLServerConnection: TADOConnection
     Connected = True
     ConnectionString = 
@@ -10,8 +10,8 @@ object dmConexoes: TdmConexoes
       'E'
     LoginPrompt = False
     Provider = 'SQLOLEDB.1'
-    Left = 160
-    Top = 112
+    Left = 187
+    Top = 131
   end
   object qrProdutos: TADOQuery
     Active = True
@@ -20,8 +20,8 @@ object dmConexoes: TdmConexoes
     Parameters = <>
     SQL.Strings = (
       'SELECT * FROM PRODUTOS')
-    Left = 160
-    Top = 272
+    Left = 187
+    Top = 317
     object qrProdutosIDProduto: TAutoIncField
       FieldName = 'IDProduto'
       ReadOnly = True
@@ -59,8 +59,8 @@ object dmConexoes: TdmConexoes
     Parameters = <>
     SQL.Strings = (
       'SELECT * FROM GRUPOS')
-    Left = 152
-    Top = 376
+    Left = 177
+    Top = 439
     object qrGruposIDGrupo: TAutoIncField
       FieldName = 'IDGrupo'
       ReadOnly = True
@@ -83,8 +83,8 @@ object dmConexoes: TdmConexoes
     Parameters = <>
     SQL.Strings = (
       'SELECT * FROM MARCAS')
-    Left = 261
-    Top = 377
+    Left = 305
+    Top = 440
   end
   object qrComando: TADOQuery
     Active = True
@@ -93,8 +93,8 @@ object dmConexoes: TdmConexoes
     Parameters = <>
     SQL.Strings = (
       'SELECT * FROM GRUPOS')
-    Left = 416
-    Top = 376
+    Left = 485
+    Top = 439
   end
   object qrProdutosGrid: TADOQuery
     Active = True
@@ -103,8 +103,8 @@ object dmConexoes: TdmConexoes
     Parameters = <>
     SQL.Strings = (
       'SELECT * FROM PRODUTOS')
-    Left = 304
-    Top = 272
+    Left = 355
+    Top = 317
     object AutoIncField1: TAutoIncField
       FieldName = 'IDProduto'
       ReadOnly = True

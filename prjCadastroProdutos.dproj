@@ -4,7 +4,7 @@
         <ProjectVersion>20.1</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <Platform Condition="'$(Platform)'==''">Win64</Platform>
         <ProjectName Condition="'$(ProjectName)'==''">prjCadastroProdutos</ProjectName>
         <TargetedPlatforms>3</TargetedPlatforms>
@@ -145,11 +145,16 @@
             <Form>CadastroProdutosRef</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Forms\uTest.pas"/>
         <DCCReference Include="Forms\uConexoes.pas">
             <Form>dmConexoes</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Forms\uGerenciaGrupos.pas"/>
+        <DCCReference Include="Forms\uGerenciaMarcas.pas"/>
+        <DCCReference Include="Forms\uCadastroMarcas.pas">
+            <Form>Form1</Form>
+            <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
@@ -186,6 +191,12 @@
                 <DeployFile LocalName="Win64\Debug\prjCadastroProdutos.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win64">
                         <RemoteName>prjCadastroProdutos.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Win64\Debug\prjCadastroProdutos.rsm" Configuration="Debug" Class="DebugSymbols">
+                    <Platform Name="Win64">
+                        <RemoteName>prjCadastroProdutos.rsm</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
