@@ -14,19 +14,14 @@ type
     Sair1: TMenuItem;
     Grupo1: TMenuItem;
     Produtos21: TMenuItem;
-    Image1: TImage;
-    Panel1: TPanel;
-    Panel2: TPanel;
-    Panel3: TPanel;
-    Panel4: TPanel;
+    Background: TImage;
     Consu1: TMenuItem;
     Produtos2: TMenuItem;
+    Marca1: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure Produtos2Click(Sender: TObject);
     procedure Grupo1Click(Sender: TObject);
     procedure Produtos21Click(Sender: TObject);
-    procedure TesteClick(Sender: TObject);
-    procedure Panel1MouseEnter(Sender: TObject);
     procedure Sair1Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
@@ -51,43 +46,6 @@ uses
 
 {$R *.dfm}
 
-procedure TfrmMain.TesteClick(Sender: TObject);
-  var
-  i: Integer;
-  linhaResultado: string;
-begin
-  with dmConexoes do
-  begin
-    qrGrupos.Close;
-    qrGrupos.SQL.Clear;
-    qrGrupos.SQL.Add('SELECT * FROM GRUPOS');
-    qrGrupos.Open;
-
-    // Verifica se existem registros retornados
-    if not qrGrupos.IsEmpty then
-    begin
-      qrGrupos.First;
-
-      // Itera sobre os registros e exibe o resultado em ShowMessage
-      while not qrGrupos.Eof do
-      begin
-        linhaResultado := '';
-        for i := 0 to qrGrupos.FieldCount - 1 do
-        begin
-          linhaResultado := linhaResultado + qrGrupos.Fields[i].FieldName + ': ' +
-            qrGrupos.Fields[i].AsString + ' | ';
-        end;
-        ShowMessage(linhaResultado); // Mostra cada registro
-        qrGrupos.Next;
-      end;
-    end
-    else
-    begin
-      ShowMessage('Nenhum registro encontrado.');
-    end;
-  end;
-
-end;
 
 procedure TfrmMain.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
@@ -109,17 +67,18 @@ begin
   frmCadastroGrupos.Free;
 end;
 
-procedure TfrmMain.Panel1MouseEnter(Sender: TObject);
-begin
-  case TPanel(Sender).Color of
-    clBlack: TPanel(Sender).Color  := clMaroon;
-    clMaroon: TPanel(Sender).Color := clGreen;
-    clGreen: TPanel(Sender).Color  := clOlive;
-    clOlive: TPanel(Sender).Color  := clBlack;
-    else
-      TPanel(Sender).Color := clWhite;
-  end;
-end;
+//procedure TfrmMain.Panel1MouseEnter(Sender: TObject);
+//begin
+//  case TPanel(Sender).Color of
+//    clBlack: TPanel(Sender).Color  := clMaroon;
+//    clMaroon: TPanel(Sender).Color := clGreen;
+//    clGreen: TPanel(Sender).Color  := clOlive;
+//    clOlive: TPanel(Sender).Color  := clBlack;
+//    else
+//      TPanel(Sender).Color := clWhite;
+//  end;
+//end;
+
 
 
 procedure TfrmMain.Produtos21Click(Sender: TObject);

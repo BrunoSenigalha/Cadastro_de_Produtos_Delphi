@@ -6,6 +6,7 @@ interface
     Data.Win.ADODB, Data.DB, uConexoes, Winapi.Windows;
 
 function BuscaMarca(const Marca: string): Integer;
+function BuscarDescricaoMarca(const IDMarca: integer): string;
 
 implementation
 
@@ -32,4 +33,26 @@ begin
     end;
   end;
 end;
+
+function BuscarDescricaoMarca(const IDMarca: integer): string;
+  begin
+    with dmConexoes do
+    begin
+      qrComando.Close;
+      qrComando.SQL.Clear;
+      qrComando.SQL.Add('SELECT MarcaDescricao FROM MARCAS WHERE IDMarca = :pIDMarca');
+      qrComando.Parameters.ParamByName('pIDMarca').Value := IDMarca;
+      qrComando.Open;
+
+      if not qrComando.IsEmpty then
+      begin
+         Result:= qrComando.FieldByName('MarcaDescricao').AsString;
+      end
+      else
+      begin
+        Application.MessageBox('Marca não encontrada','AVISO', MB_OK+MB_ICONERROR);
+        Exit
+      end;
+    end;
+  end;
 end.

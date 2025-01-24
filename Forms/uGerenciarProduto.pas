@@ -10,6 +10,7 @@ procedure SalvarProdutos(codBarras, descricao: String; preco: Double; grupo, mar
 procedure ExcluirProduto(codBarras : string);
 
 procedure VerificarCodBarras(codBarras: string);
+procedure CarregaProdutos;
 
 implementation
 
@@ -67,6 +68,18 @@ begin
       qrProdutos.Parameters.ParamByName('pCodBarras').Value := codBarras;
       qrProdutos.Open;
    end;
+end;
+
+procedure CarregaProdutos;
+begin
+  with dmConexoes do
+  begin
+    qrProdutos.Close;
+    qrProdutos.SQL.Clear;
+    qrProdutos.SQL.Add('SELECT * FROM PRODUTOS');
+    qrProdutos.Open;
+    qrProdutos.First;
+  end;
 end;
 
 end.

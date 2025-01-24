@@ -1,7 +1,7 @@
 object dmConexoes: TdmConexoes
-  Height = 728
-  Width = 923
-  PixelsPerInch = 168
+  Height = 624
+  Width = 791
+  PixelsPerInch = 144
   object SQLServerConnection: TADOConnection
     Connected = True
     ConnectionString = 
@@ -10,8 +10,8 @@ object dmConexoes: TdmConexoes
       'E'
     LoginPrompt = False
     Provider = 'SQLOLEDB.1'
-    Left = 187
-    Top = 131
+    Left = 160
+    Top = 112
   end
   object qrProdutos: TADOQuery
     Active = True
@@ -20,8 +20,8 @@ object dmConexoes: TdmConexoes
     Parameters = <>
     SQL.Strings = (
       'SELECT * FROM PRODUTOS')
-    Left = 187
-    Top = 317
+    Left = 160
+    Top = 272
     object qrProdutosIDProduto: TAutoIncField
       FieldName = 'IDProduto'
       ReadOnly = True
@@ -59,8 +59,8 @@ object dmConexoes: TdmConexoes
     Parameters = <>
     SQL.Strings = (
       'SELECT * FROM GRUPOS')
-    Left = 177
-    Top = 439
+    Left = 152
+    Top = 376
     object qrGruposIDGrupo: TAutoIncField
       FieldName = 'IDGrupo'
       ReadOnly = True
@@ -83,8 +83,8 @@ object dmConexoes: TdmConexoes
     Parameters = <>
     SQL.Strings = (
       'SELECT * FROM MARCAS')
-    Left = 305
-    Top = 440
+    Left = 261
+    Top = 377
   end
   object qrComando: TADOQuery
     Active = True
@@ -93,8 +93,8 @@ object dmConexoes: TdmConexoes
     Parameters = <>
     SQL.Strings = (
       'SELECT * FROM GRUPOS')
-    Left = 485
-    Top = 439
+    Left = 416
+    Top = 376
   end
   object qrProdutosGrid: TADOQuery
     Active = True
@@ -103,8 +103,8 @@ object dmConexoes: TdmConexoes
     Parameters = <>
     SQL.Strings = (
       'SELECT * FROM PRODUTOS')
-    Left = 355
-    Top = 317
+    Left = 304
+    Top = 272
     object AutoIncField1: TAutoIncField
       FieldName = 'IDProduto'
       ReadOnly = True
@@ -134,5 +134,20 @@ object dmConexoes: TdmConexoes
     object BooleanField1: TBooleanField
       FieldName = 'ProdInativo'
     end
+  end
+  object dsGrupos: TDataSource
+    DataSet = qrGrupos
+    Left = 624
+    Top = 154
+  end
+  object dsMarcas: TDataSource
+    DataSet = qrMarcas
+    Left = 521
+    Top = 186
+  end
+  object dsProdutos: TDataSource
+    DataSet = qrProdutos
+    Left = 529
+    Top = 98
   end
 end

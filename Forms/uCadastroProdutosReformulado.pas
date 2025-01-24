@@ -13,13 +13,13 @@ type
     pnButtons: TPanel;
     pnPrincipal: TPanel;
     pnBase: TPanel;
+    btnSair: TSpeedButton;
     btnSalvar: TSpeedButton;
     btnEditar: TSpeedButton;
     btnExcluir: TSpeedButton;
     btnCancelar: TSpeedButton;
     btnNovo: TSpeedButton;
     ed_codbarras: TEdit;
-    PageControl1: TPageControl;
     lbCodBarras: TLabel;
     ed_descricao: TEdit;
     lbDescricao: TLabel;
@@ -29,23 +29,22 @@ type
     ed_preco: TEdit;
     Label5: TLabel;
     ed_quantidade: TEdit;
-    TabSheet1: TTabSheet;
-    dsProdutos: TDataSource;
-    DBGrid1: TDBGrid;
     dbCBGrupo: TDBComboBox;
-    dsGrupos: TDataSource;
-    dsMarcas: TDataSource;
     dbCBMarca: TDBComboBox;
     DBCheckBoxInativo: TDBCheckBox;
-    procedure FormShow(Sender: TObject);
+    btnBuscar: TSpeedButton;
+    Panel1: TPanel;
     procedure CarregarComboBoxGrupos;
     procedure CarregarComboBoxMarcas;
     procedure FormCreate(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
     procedure btnNovoClick(Sender: TObject);
     procedure btnExcluirClick(Sender: TObject);
+    procedure btnSairClick(Sender: TObject);
+    procedure btnNovoMouseEnter(Sender: TObject);
+    procedure btnNovoMouseLeave(Sender: TObject);
+
   private
-    procedure CarregaGrid();
     procedure LimparCampos();
     { Private declarations }
   public
@@ -66,56 +65,63 @@ begin
   ed_quantidade.Text := '';
 end;
 
-procedure TCadastroProdutosRef.CarregaGrid();
-begin
-  with dmConexoes do
-  begin
-    qrProdutosGrid.Close;
-    qrProdutosGrid.SQL.Clear;
-    qrProdutosGrid.SQL.Add('SELECT * FROM PRODUTOS');
-    qrProdutosGrid.Open;
-    qrProdutosGrid.First;
-  end;
-end;
+
+
 
 procedure TCadastroProdutosRef.FormCreate(Sender: TObject);
+var
+  IDGrupo: integer;
+  IDMarca: integer;
 begin
   CarregarComboBoxGrupos();
   CarregarComboBoxMarcas();
-end;
 
-procedure TCadastroProdutosRef.FormShow(Sender: TObject);
-begin
-   CarregaGrid();
+  with dmConexoes do
+  begin
+    uGerenciarProduto.CarregaProdutos();
+
+    ed_codbarras.Text   := dsProdutos.DataSet.FieldByName('CodBarras').AsString;
+    ed_descricao.Text   := dsProdutos.DataSet.FieldByName('ProdDescricao').AsString;
+    ed_preco.Text       := dsProdutos.DataSet.FieldByName('ProdPreco').AsString;
+    IDGrupo             := dsProdutos.DataSet.FieldByName('ProdGrupo').AsInteger;
+    dbCBGrupo.Text      := uGerenciaGrupos.BuscarDescricaoGrupo(IDGrupo);
+    IDMarca             := dsProdutos.DataSet.FieldByName('ProdMarca').AsInteger;
+    dbCBMarca.Text      := uGerenciaMarcas.BuscarDescricaoMarca(IDMarca);
+    ed_quantidade.Text  := dsProdutos.DataSet.FieldByName('ProdQuantidade').AsString;
+  end;
 end;
 
 procedure TCadastroProdutosRef.CarregarComboBoxGrupos;
 begin
-  if not dsGrupos.DataSet.Active then
-   dsGrupos.DataSet.Open;
-
-   dbCBGrupo.Items.Clear;
-
-
-  dsGrupos.DataSet.First;
-
-  while not dsGrupos.DataSet.Eof do
+  with dmConexoes do
   begin
-    dbCBGrupo.Items.Add(dsGrupos.DataSet.FieldByName('GrupoDescricao').AsString);
-    dsGrupos.DataSet.Next;
+    if not dsGrupos.DataSet.Active then
+     dsGrupos.DataSet.Open;
+     dbCBGrupo.Items.Clear;
+     dsGrupos.DataSet.First;
+
+    while not dsGrupos.DataSet.Eof do
+    begin
+      dbCBGrupo.Items.Add(dsGrupos.DataSet.FieldByName('GrupoDescricao').AsString);
+      dsGrupos.DataSet.Next;
+    end;
   end;
+
 end;
 
 procedure TCadastroProdutosRef.CarregarComboBoxMarcas;
 begin
-  dbCBMarca.Items.Clear;
-
-  dsMarcas.DataSet.First;
-
-  while not dsMarcas.DataSet.Eof do
+  with dmConexoes do
   begin
-    dbCBMarca.Items.Add(dsMarcas.DataSet.FieldByName('MarcaDescricao').AsString);
-    dsMarcas.DataSet.Next;
+     dbCBMarca.Items.Clear;
+
+    dsMarcas.DataSet.First;
+
+    while not dsMarcas.DataSet.Eof do
+      begin
+        dbCBMarca.Items.Add(dsMarcas.DataSet.FieldByName('MarcaDescricao').AsString);
+        dsMarcas.DataSet.Next;
+      end;
   end;
 end;
 
@@ -143,6 +149,20 @@ begin
     LimparCampos();
     qrProdutos.Insert;
   end;
+end;
+
+
+
+
+
+procedure TCadastroProdutosRef.btnNovoMouseEnter(Sender: TObject);
+begin
+  Panel1.Color := $00716A6A;
+end;
+
+procedure TCadastroProdutosRef.btnNovoMouseLeave(Sender: TObject);
+begin
+  Panel1.Color := $00333333;
 end;
 
 procedure TCadastroProdutosRef.btnSalvarClick(Sender: TObject);
@@ -174,5 +194,10 @@ begin
       end;
     end;
   end;
+end;
+
+procedure TCadastroProdutosRef.btnSairClick(Sender: TObject);
+begin
+  Close;
 end;
 end.

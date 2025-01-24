@@ -33,6 +33,9 @@ type
     BCDField1: TBCDField;
     IntegerField3: TIntegerField;
     BooleanField1: TBooleanField;
+    dsGrupos: TDataSource;
+    dsMarcas: TDataSource;
+    dsProdutos: TDataSource;
   private
     { Private declarations }
   public

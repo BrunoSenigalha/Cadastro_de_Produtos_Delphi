@@ -11,7 +11,8 @@ uses
   uConexoes in 'Forms\uConexoes.pas' {dmConexoes: TDataModule},
   uGerenciaGrupos in 'Forms\uGerenciaGrupos.pas',
   uGerenciaMarcas in 'Forms\uGerenciaMarcas.pas',
-  uCadastroMarcas in 'Forms\uCadastroMarcas.pas' {Form1};
+  uCadastroMarcas in 'Forms\uCadastroMarcas.pas' {Form1},
+  uPesquisaProdutos in 'Forms\uPesquisaProdutos.pas' {frmPesquisaProdutos};
 
 {$R *.res}
 
@@ -26,5 +27,6 @@ begin
   Application.CreateForm(TCadastroProdutosRef, CadastroProdutosRef);
   Application.CreateForm(TdmConexoes, dmConexoes);
   Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TfrmPesquisaProdutos, frmPesquisaProdutos);
   Application.Run;
 end.
