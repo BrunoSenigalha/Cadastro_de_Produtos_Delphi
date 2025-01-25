@@ -33,7 +33,6 @@ type
     dbCBGrupo: TDBComboBox;
     dbCBMarca: TDBComboBox;
     DBCheckBoxInativo: TDBCheckBox;
-    Panel1: TPanel;
     btnBuscar: TSpeedButton;
     procedure CarregarComboBoxGrupos;
     procedure CarregarComboBoxMarcas;

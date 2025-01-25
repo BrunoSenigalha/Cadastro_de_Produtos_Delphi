@@ -27,12 +27,16 @@ type
     DBGrid1: TDBGrid;
     btnNovo: TSpeedButton;
     btnAnterior: TSpeedButton;
+    btnProximo: TSpeedButton;
+    btnSair: TSpeedButton;
     procedure FormShow(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
     procedure btnEditarClick(Sender: TObject);
     procedure btnExcluirClick(Sender: TObject);
     procedure btnNovoClick(Sender: TObject);
     procedure btnAnteriorClick(Sender: TObject);
+    procedure btnProximoClick(Sender: TObject);
+    procedure btnSairClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -48,6 +52,7 @@ uses
   uConexoes;
 
 {$R *.dfm}
+
 
 procedure TfrmCadastroMarcas.btnSalvarClick(Sender: TObject);
 begin
@@ -72,7 +77,11 @@ end;
 procedure TfrmCadastroMarcas.btnAnteriorClick(Sender: TObject);
 begin
   dsMarcas.DataSet.Prior;
-  // dsGrupos.DataSet.Next;
+end;
+
+procedure TfrmCadastroMarcas.btnProximoClick(Sender: TObject);
+begin
+  dsMarcas.DataSet.Next;
 end;
 
 procedure TfrmCadastroMarcas.btnEditarClick(Sender: TObject);
@@ -94,7 +103,12 @@ end;
 
 procedure TfrmCadastroMarcas.btnNovoClick(Sender: TObject);
 begin
-    dsMarcas.DataSet.Insert;
+  dsMarcas.DataSet.Insert;
+end;
+
+procedure TfrmCadastroMarcas.btnSairClick(Sender: TObject);
+begin
+  Close;
 end;
 
 end.

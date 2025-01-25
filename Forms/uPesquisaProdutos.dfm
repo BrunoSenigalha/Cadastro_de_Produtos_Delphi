@@ -2,8 +2,8 @@ object frmPesquisaProdutos: TfrmPesquisaProdutos
   Left = 0
   Top = 0
   Caption = 'Pesquisar Produtos'
-  ClientHeight = 595
-  ClientWidth = 892
+  ClientHeight = 521
+  ClientWidth = 951
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -13,8 +13,8 @@ object frmPesquisaProdutos: TfrmPesquisaProdutos
   TextHeight = 15
   object PageControl1: TPageControl
     Left = 0
-    Top = 344
-    Width = 892
+    Top = 270
+    Width = 951
     Height = 251
     Margins.Left = 5
     Margins.Top = 5
@@ -23,12 +23,14 @@ object frmPesquisaProdutos: TfrmPesquisaProdutos
     ActivePage = TabSheet1
     Align = alBottom
     TabOrder = 0
+    ExplicitTop = 327
+    ExplicitWidth = 886
     object TabSheet1: TTabSheet
       Caption = 'Produtos'
       object DBGrid1: TDBGrid
         Left = 0
         Top = 0
-        Width = 884
+        Width = 943
         Height = 221
         Align = alClient
         Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]

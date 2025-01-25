@@ -32,7 +32,7 @@ object CadastroProdutosRef: TCadastroProdutosRef
     TabOrder = 0
     ExplicitWidth = 1081
     object btnSalvar: TSpeedButton
-      Left = 238
+      Left = 109
       Top = 0
       Width = 117
       Height = 73
@@ -45,16 +45,16 @@ object CadastroProdutosRef: TCadastroProdutosRef
       Flat = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
-      Font.Height = -19
+      Font.Height = -20
       Font.Name = 'Segoe UI'
-      Font.Style = []
+      Font.Style = [fsBold]
       ParentFont = False
       OnClick = btnSalvarClick
-      ExplicitLeft = 252
-      ExplicitHeight = 81
+      ExplicitLeft = -163
+      ExplicitTop = -10
     end
     object btnEditar: TSpeedButton
-      Left = 121
+      Left = 226
       Top = 0
       Width = 117
       Height = 73
@@ -67,16 +67,16 @@ object CadastroProdutosRef: TCadastroProdutosRef
       Flat = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
-      Font.Height = -19
+      Font.Height = -20
       Font.Name = 'Segoe UI'
-      Font.Style = []
+      Font.Style = [fsBold]
       ParentFont = False
       OnClick = btnEditarClick
-      ExplicitLeft = 129
-      ExplicitHeight = 81
+      ExplicitLeft = 71
+      ExplicitTop = -10
     end
     object btnExcluir: TSpeedButton
-      Left = 472
+      Left = 460
       Top = 0
       Width = 117
       Height = 73
@@ -89,17 +89,16 @@ object CadastroProdutosRef: TCadastroProdutosRef
       Flat = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
-      Font.Height = -19
+      Font.Height = -20
       Font.Name = 'Segoe UI'
-      Font.Style = []
+      Font.Style = [fsBold]
       ParentFont = False
       OnClick = btnExcluirClick
-      ExplicitLeft = 468
-      ExplicitTop = 128
-      ExplicitHeight = 90
+      ExplicitLeft = 297
+      ExplicitTop = -10
     end
     object btnCancelar: TSpeedButton
-      Left = 355
+      Left = 343
       Top = 0
       Width = 117
       Height = 73
@@ -112,13 +111,13 @@ object CadastroProdutosRef: TCadastroProdutosRef
       Flat = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
-      Font.Height = -19
+      Font.Height = -20
       Font.Name = 'Segoe UI'
-      Font.Style = []
+      Font.Style = [fsBold]
       ParentFont = False
       OnClick = btnCancelarClick
-      ExplicitLeft = 351
-      ExplicitHeight = 81
+      ExplicitLeft = 71
+      ExplicitTop = -10
     end
     object btnSair: TSpeedButton
       Left = 907
@@ -134,13 +133,13 @@ object CadastroProdutosRef: TCadastroProdutosRef
       Flat = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
-      Font.Height = -19
+      Font.Height = -20
       Font.Name = 'Segoe UI'
-      Font.Style = []
+      Font.Style = [fsBold]
       ParentFont = False
       OnClick = btnSairClick
-      ExplicitLeft = 756
-      ExplicitHeight = 81
+      ExplicitLeft = 744
+      ExplicitTop = -10
     end
     object btnBuscar: TSpeedButton
       Left = 790
@@ -156,50 +155,35 @@ object CadastroProdutosRef: TCadastroProdutosRef
       Flat = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
-      Font.Height = -19
+      Font.Height = -20
       Font.Name = 'Segoe UI'
-      Font.Style = []
+      Font.Style = [fsBold]
       ParentFont = False
       OnClick = btnBuscarClick
-      ExplicitLeft = 856
+      ExplicitLeft = 744
       ExplicitTop = -10
-      ExplicitHeight = 81
     end
-    object Panel1: TPanel
+    object btnNovo: TSpeedButton
       Left = 0
       Top = 0
-      Width = 121
+      Width = 109
       Height = 73
+      Cursor = crHandPoint
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
       Align = alLeft
-      BevelOuter = bvNone
-      Color = 3355443
-      ParentBackground = False
-      TabOrder = 0
-      object btnNovo: TSpeedButton
-        Left = 0
-        Top = 0
-        Width = 121
-        Height = 73
-        Cursor = crHandPoint
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
-        Align = alClient
-        Caption = 'NOVO'
-        Flat = True
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -19
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        OnClick = btnNovoClick
-        ExplicitLeft = -8
-        ExplicitTop = 14
-        ExplicitWidth = 117
-        ExplicitHeight = 81
-      end
+      Caption = 'NOVO'
+      Flat = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -20
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnNovoClick
+      ExplicitLeft = -44
     end
   end
   object pnPrincipal: TPanel

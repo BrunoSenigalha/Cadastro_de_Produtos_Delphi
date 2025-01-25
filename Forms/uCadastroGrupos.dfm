@@ -4,8 +4,8 @@ object frmCadastroGrupos: TfrmCadastroGrupos
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'frmCadastroGrupos'
-  ClientHeight = 682
-  ClientWidth = 813
+  ClientHeight = 560
+  ClientWidth = 782
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,8 +18,8 @@ object frmCadastroGrupos: TfrmCadastroGrupos
   object pnPrincipal: TPanel
     Left = 0
     Top = 0
-    Width = 813
-    Height = 610
+    Width = 782
+    Height = 488
     Margins.Left = 6
     Margins.Top = 6
     Margins.Right = 6
@@ -28,6 +28,8 @@ object frmCadastroGrupos: TfrmCadastroGrupos
     BevelOuter = bvNone
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 813
+    ExplicitHeight = 610
     object Label3: TLabel
       Left = 39
       Top = 81
@@ -47,8 +49,8 @@ object frmCadastroGrupos: TfrmCadastroGrupos
       ParentFont = False
     end
     object Label4: TLabel
-      Left = 39
-      Top = 139
+      Left = 367
+      Top = 82
       Width = 57
       Height = 17
       Margins.Left = 4
@@ -85,8 +87,8 @@ object frmCadastroGrupos: TfrmCadastroGrupos
       TabOrder = 0
     end
     object DBEdit4: TDBEdit
-      Left = 39
-      Top = 164
+      Left = 367
+      Top = 107
       Width = 286
       Height = 25
       Margins.Left = 4
@@ -105,7 +107,7 @@ object frmCadastroGrupos: TfrmCadastroGrupos
     end
     object DBCheckBox1: TDBCheckBox
       Left = 39
-      Top = 197
+      Top = 149
       Width = 194
       Height = 20
       Margins.Left = 4
@@ -125,7 +127,7 @@ object frmCadastroGrupos: TfrmCadastroGrupos
     end
     object DBCheckBox2: TDBCheckBox
       Left = 39
-      Top = 224
+      Top = 177
       Width = 194
       Height = 20
       Margins.Left = 4
@@ -146,15 +148,16 @@ object frmCadastroGrupos: TfrmCadastroGrupos
     object pnButtons: TPanel
       Left = 0
       Top = 0
-      Width = 813
+      Width = 782
       Height = 67
       Align = alTop
       BevelOuter = bvNone
       Color = 3355443
       ParentBackground = False
       TabOrder = 4
+      ExplicitWidth = 813
       object btnExcluir: TSpeedButton
-        Left = 205
+        Left = 307
         Top = 0
         Width = 103
         Height = 67
@@ -170,9 +173,10 @@ object frmCadastroGrupos: TfrmCadastroGrupos
         Layout = blGlyphTop
         ParentFont = False
         OnClick = btnExcluirClick
+        ExplicitLeft = 205
       end
       object btnEditar: TSpeedButton
-        Left = 103
+        Left = 205
         Top = 0
         Width = 102
         Height = 67
@@ -191,7 +195,7 @@ object frmCadastroGrupos: TfrmCadastroGrupos
         ExplicitLeft = 109
       end
       object btnSalvar: TSpeedButton
-        Left = 0
+        Left = 102
         Top = 0
         Width = 103
         Height = 67
@@ -201,7 +205,7 @@ object frmCadastroGrupos: TfrmCadastroGrupos
         Flat = True
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWhite
-        Font.Height = -21
+        Font.Height = -19
         Font.Name = 'Segoe UI'
         Font.Style = [fsBold]
         Layout = blGlyphTop
@@ -210,7 +214,7 @@ object frmCadastroGrupos: TfrmCadastroGrupos
         ExplicitLeft = -6
       end
       object btnNovo: TSpeedButton
-        Left = 308
+        Left = 0
         Top = 0
         Width = 102
         Height = 67
@@ -226,6 +230,8 @@ object frmCadastroGrupos: TfrmCadastroGrupos
         Layout = blGlyphTop
         ParentFont = False
         OnClick = btnNovoClick
+        ExplicitLeft = -44
+        ExplicitTop = -16
       end
       object btnAnterior: TSpeedButton
         Left = 410
@@ -246,11 +252,49 @@ object frmCadastroGrupos: TfrmCadastroGrupos
         OnClick = btnAnteriorClick
         ExplicitLeft = 404
       end
+      object btnProximo: TSpeedButton
+        Left = 512
+        Top = 0
+        Width = 102
+        Height = 67
+        Cursor = crHandPoint
+        Align = alLeft
+        Caption = 'Pr'#243'ximo'
+        Flat = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -19
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        Layout = blGlyphTop
+        ParentFont = False
+        OnClick = btnProximoClick
+        ExplicitLeft = 610
+      end
+      object btnSair: TSpeedButton
+        Left = 683
+        Top = 0
+        Width = 99
+        Height = 67
+        Cursor = crHandPoint
+        Align = alRight
+        Caption = 'Sair'
+        Flat = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -19
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        Layout = blGlyphTop
+        ParentFont = False
+        OnClick = btnSairClick
+        ExplicitLeft = 614
+      end
     end
     object PageControl1: TPageControl
       Left = 0
-      Top = 350
-      Width = 813
+      Top = 228
+      Width = 782
       Height = 260
       Margins.Left = 2
       Margins.Top = 2
@@ -265,8 +309,7 @@ object frmCadastroGrupos: TfrmCadastroGrupos
       Font.Style = []
       ParentFont = False
       TabOrder = 5
-      ExplicitTop = 272
-      ExplicitWidth = 654
+      ExplicitTop = 220
       object TabSheet1: TTabSheet
         Margins.Left = 2
         Margins.Top = 2
@@ -282,7 +325,7 @@ object frmCadastroGrupos: TfrmCadastroGrupos
         object DBGrid1: TDBGrid
           Left = 0
           Top = 0
-          Width = 805
+          Width = 774
           Height = 224
           Margins.Left = 2
           Margins.Top = 2
@@ -358,8 +401,8 @@ object frmCadastroGrupos: TfrmCadastroGrupos
   end
   object pnBot: TPanel
     Left = 0
-    Top = 610
-    Width = 813
+    Top = 488
+    Width = 782
     Height = 72
     Margins.Left = 6
     Margins.Top = 6
@@ -377,10 +420,13 @@ object frmCadastroGrupos: TfrmCadastroGrupos
     ParentBackground = False
     ParentFont = False
     TabOrder = 1
+    ExplicitLeft = 4
+    ExplicitTop = 610
+    ExplicitWidth = 836
   end
   object dsGrupos: TDataSource
     DataSet = dmConexoes.qrGrupos
-    Left = 424
-    Top = 104
+    Left = 664
+    Top = 192
   end
 end

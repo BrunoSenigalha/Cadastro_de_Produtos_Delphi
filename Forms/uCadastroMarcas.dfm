@@ -4,8 +4,8 @@ object frmCadastroMarcas: TfrmCadastroMarcas
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Cadastro de Marcas'
-  ClientHeight = 682
-  ClientWidth = 813
+  ClientHeight = 560
+  ClientWidth = 782
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,8 +18,8 @@ object frmCadastroMarcas: TfrmCadastroMarcas
   object pnPrincipal: TPanel
     Left = 0
     Top = 0
-    Width = 813
-    Height = 610
+    Width = 782
+    Height = 488
     Margins.Left = 6
     Margins.Top = 6
     Margins.Right = 6
@@ -28,9 +28,11 @@ object frmCadastroMarcas: TfrmCadastroMarcas
     BevelOuter = bvNone
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 813
+    ExplicitHeight = 610
     object Label3: TLabel
       Left = 39
-      Top = 97
+      Top = 81
       Width = 12
       Height = 17
       Margins.Left = 4
@@ -47,8 +49,8 @@ object frmCadastroMarcas: TfrmCadastroMarcas
       ParentFont = False
     end
     object Label4: TLabel
-      Left = 39
-      Top = 153
+      Left = 367
+      Top = 83
       Width = 57
       Height = 17
       Margins.Left = 4
@@ -66,7 +68,7 @@ object frmCadastroMarcas: TfrmCadastroMarcas
     end
     object DBEdit3: TDBEdit
       Left = 39
-      Top = 123
+      Top = 107
       Width = 286
       Height = 25
       Margins.Left = 4
@@ -85,9 +87,9 @@ object frmCadastroMarcas: TfrmCadastroMarcas
       TabOrder = 0
     end
     object DBEdit4: TDBEdit
-      Left = 39
-      Top = 180
-      Width = 473
+      Left = 367
+      Top = 107
+      Width = 286
       Height = 25
       Margins.Left = 4
       Margins.Top = 4
@@ -105,7 +107,7 @@ object frmCadastroMarcas: TfrmCadastroMarcas
     end
     object DBCheckBox2: TDBCheckBox
       Left = 39
-      Top = 252
+      Top = 148
       Width = 194
       Height = 20
       Margins.Left = 4
@@ -126,14 +128,14 @@ object frmCadastroMarcas: TfrmCadastroMarcas
     object pnButtons: TPanel
       Left = 0
       Top = 0
-      Width = 813
+      Width = 782
       Height = 67
       Align = alTop
       BevelOuter = bvNone
       Color = 3355443
       ParentBackground = False
       TabOrder = 3
-      ExplicitWidth = 807
+      ExplicitWidth = 813
       object btnExcluir: TSpeedButton
         Left = 205
         Top = 0
@@ -225,12 +227,51 @@ object frmCadastroMarcas: TfrmCadastroMarcas
         OnClick = btnAnteriorClick
         ExplicitLeft = 572
       end
+      object btnProximo: TSpeedButton
+        Left = 512
+        Top = 0
+        Width = 102
+        Height = 67
+        Cursor = crHandPoint
+        Align = alLeft
+        Caption = 'Pr'#243'ximo'
+        Flat = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -19
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        Layout = blGlyphTop
+        ParentFont = False
+        OnClick = btnProximoClick
+        ExplicitLeft = 634
+      end
+      object btnSair: TSpeedButton
+        Left = 680
+        Top = 0
+        Width = 102
+        Height = 67
+        Cursor = crHandPoint
+        Align = alRight
+        Caption = 'Sair'
+        Flat = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -19
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        Layout = blGlyphTop
+        ParentFont = False
+        OnClick = btnSairClick
+        ExplicitLeft = 711
+        ExplicitHeight = 599
+      end
     end
     object PageControl1: TPageControl
       Left = 0
-      Top = 368
-      Width = 813
-      Height = 242
+      Top = 228
+      Width = 782
+      Height = 260
       Margins.Left = 2
       Margins.Top = 2
       Margins.Right = 2
@@ -244,8 +285,6 @@ object frmCadastroMarcas: TfrmCadastroMarcas
       Font.Style = []
       ParentFont = False
       TabOrder = 4
-      ExplicitTop = 317
-      ExplicitWidth = 684
       object TabSheet1: TTabSheet
         Margins.Left = 2
         Margins.Top = 2
@@ -261,8 +300,8 @@ object frmCadastroMarcas: TfrmCadastroMarcas
         object DBGrid1: TDBGrid
           Left = 0
           Top = 0
-          Width = 805
-          Height = 206
+          Width = 774
+          Height = 224
           Margins.Left = 2
           Margins.Top = 2
           Margins.Right = 2
@@ -325,8 +364,8 @@ object frmCadastroMarcas: TfrmCadastroMarcas
   end
   object pnBot: TPanel
     Left = 0
-    Top = 610
-    Width = 813
+    Top = 488
+    Width = 782
     Height = 72
     Margins.Left = 6
     Margins.Top = 6
@@ -344,12 +383,12 @@ object frmCadastroMarcas: TfrmCadastroMarcas
     ParentBackground = False
     ParentFont = False
     TabOrder = 1
-    ExplicitTop = 593
-    ExplicitWidth = 807
+    ExplicitTop = 610
+    ExplicitWidth = 813
   end
   object dsMarcas: TDataSource
     DataSet = dmConexoes.qrMarcas
-    Left = 424
-    Top = 104
+    Left = 640
+    Top = 192
   end
 end
