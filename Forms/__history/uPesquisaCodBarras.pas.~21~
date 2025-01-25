@@ -9,15 +9,14 @@ uses
 type
   TfrmPesquisaCodBarras = class(TForm)
     Panel1: TPanel;
-    ed_descricao: TEdit;
+    ed_buscarcodbarras: TEdit;
     lbDescricao: TLabel;
     Panel2: TPanel;
     Panel3: TPanel;
     btnBuscar: TSpeedButton;
     btnCancelar: TSpeedButton;
     procedure btnBuscarClick(Sender: TObject);
-//    procedure btnBuscarClick(Sender: TObject);
-//    function BuscarProduto(const codBarras : string);
+    procedure btnCancelarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -33,27 +32,30 @@ implementation
 
 uses uConexoes, uCadastroProdutosReformulado;
 
-//procedure TfrmPesquisaCodBarras.btnBuscarClick(Sender: TObject);
-//begin
-//
-//end;
-
 procedure TfrmPesquisaCodBarras.btnBuscarClick(Sender: TObject);
 begin
  with dmConexoes do
    begin
-    if not qrProdutos.locate('CodBarras', ed_descricao.Text,[]) then
+    if not qrProdutos.locate('CodBarras', ed_buscarcodbarras.Text,[]) then
       Application.MessageBox('Produto não localizado', 'AVISO', MB_OK+MB_ICONINFORMATION)
     else
      begin
-       with uCadastroProdutosReformulado do
+       with CadastroProdutosRef do
        begin
          ed_codbarras.Text := qrProdutos.FieldByName('CodBarras').AsString;
+         ed_descricao.Text := qrProdutos.FieldByName('ProdDescricao').AsString;
+         ed_preco.Text := qrProdutos.FieldByName('ProdPreco').AsString;
+         ed_quantidade.Text := qrProdutos.FieldByName('ProdQuantidade').AsString;
+
        end;
+       frmPesquisaCodBarras.Close;
      end;
    end;
+end;
 
-
+procedure TfrmPesquisaCodBarras.btnCancelarClick(Sender: TObject);
+begin
+  frmPesquisaCodBarras.Close;
 end;
 
 end.

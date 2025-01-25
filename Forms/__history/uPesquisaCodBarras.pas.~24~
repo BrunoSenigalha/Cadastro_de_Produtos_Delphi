@@ -18,7 +18,6 @@ type
     btnCancelar: TSpeedButton;
     procedure btnBuscarClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
-    procedure ed_buscarcodbarrasKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -76,12 +75,6 @@ end;
 procedure TfrmPesquisaCodBarras.btnCancelarClick(Sender: TObject);
 begin
   frmPesquisaCodBarras.Close;
-end;
-
-procedure TfrmPesquisaCodBarras.ed_buscarcodbarrasKeyPress(Sender: TObject;
-  var Key: Char);
-begin
-  CadastroProdutosRef.ValidarEntradaNumerica(Key);
 end;
 
 end.

@@ -42,13 +42,10 @@ type
     procedure btnNovoClick(Sender: TObject);
     procedure btnExcluirClick(Sender: TObject);
     procedure btnSairClick(Sender: TObject);
-    procedure btnNovoMouseEnter(Sender: TObject);
-    procedure btnNovoMouseLeave(Sender: TObject);
     procedure btnEditarClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
     procedure btnBuscarClick(Sender: TObject);
     procedure ed_codbarrasKeyPress(Sender: TObject; var Key: Char);
-    procedure ValidarEntradaNumerica(var Key: Char);
     procedure ed_quantidadeKeyPress(Sender: TObject; var Key: Char);
 
   private
@@ -58,6 +55,7 @@ type
 
     { Private declarations }
   public
+    procedure ValidarEntradaNumerica(var Key: Char);
     { Public declarations }
   end;
 
@@ -103,7 +101,7 @@ end;
 procedure TCadastroProdutosRef.SetupInicial();
 begin
   // Gerenciar os botões com Setup Inicial e fazer o preenchimento dos campos
-    uGerenciarProduto.AtivarDesativarBotoes('INICIAL', [btnNovo, btnEditar, btnSalvar, btnCancelar, btnExcluir]);
+    uGerenciarProduto.AtivarDesativarBotoes('INICIAL', [btnNovo, btnEditar, btnSalvar, btnCancelar, btnExcluir, btnBuscar]);
     uGerenciarProduto.PreencherCamposDefault(ed_codbarras, ed_descricao, ed_preco, ed_quantidade, dbCBGrupo,
     dbCBMarca, DBCheckBoxInativo);
 
@@ -154,7 +152,7 @@ end;
 
 procedure TCadastroProdutosRef.btnNovoClick(Sender: TObject);
 begin
-  uGerenciarProduto.AtivarDesativarBotoes('NOVO', [btnNovo, btnEditar, btnSalvar, btnCancelar, btnExcluir]);
+  uGerenciarProduto.AtivarDesativarBotoes('NOVO', [btnNovo, btnEditar, btnSalvar, btnCancelar, btnExcluir, btnBuscar]);
 
   // Limpa os campos e Ativa
   LimparCampos();
@@ -179,7 +177,7 @@ begin
     qrProdutos.Edit;
   end;
   // Ativa os botões
-  uGerenciarProduto.AtivarDesativarBotoes('EDITAR', [btnNovo, btnEditar, btnSalvar, btnCancelar, btnExcluir]);
+  uGerenciarProduto.AtivarDesativarBotoes('EDITAR', [btnNovo, btnEditar, btnSalvar, btnCancelar, btnExcluir, btnBuscar]);
 
 end;
 
@@ -206,28 +204,37 @@ end;
 procedure TCadastroProdutosRef.btnSalvarClick(Sender: TObject);
 var
   idGrupo, idMarca, inativo : Integer;
-  descricaoGrupo : string;
+  descricaoGrupo            : string;
+  preco                     : Double;
 begin
-  if ed_codbarras.Text = '' then
+  if uGerenciarProduto.CampoVazio() then
   begin
-      Application.MessageBox('Preencher o código de Barras', 'Aviso', MB_OK+MB_ICONERROR);
+      Application.MessageBox('Todos os campos devem ser preenchidos', 'Aviso', MB_OK+MB_ICONERROR);
       Exit;
   end;
 
-  idGrupo := uGerenciaGrupos.BuscaGrupo(dbCBGrupo.Text);
-  idMarca := uGerenciaMarcas.BuscaMarca(dbCBMarca.Text);
-  inativo := IfThen(DBCheckBoxInativo.State = cbChecked, 1, 0);
+  if TryStrToFloat(ed_preco.Text, preco) then
+  begin
+    idGrupo := uGerenciaGrupos.BuscaGrupo(dbCBGrupo.Text);
+    idMarca := uGerenciaMarcas.BuscaMarca(dbCBMarca.Text);
+    inativo := IfThen(DBCheckBoxInativo.State = cbChecked, 1, 0);
 
-  try
-    uGerenciarProduto.SalvarProdutos(ed_codbarras.Text, ed_descricao.Text, StrToFloat(ed_preco.Text),
-      idGrupo, idMarca, StrToInt(ed_quantidade.Text), inativo);
+    try
+      uGerenciarProduto.SalvarProdutos(ed_codbarras.Text, ed_descricao.Text, StrToFloat(ed_preco.Text),
+        idGrupo, idMarca, StrToInt(ed_quantidade.Text), inativo);
 
-  except
-    on E: Exception do
-    begin
-      ShowMessage('Erro ao cadastrar produto: ' + E.message);
+    except
+      on E: Exception do
+      begin
+        ShowMessage('Erro ao cadastrar produto: ' + E.message);
+      end;
     end;
-  end;
+  end
+  else
+    begin
+      Application.MessageBox('Campo preço inválido', 'AVISO', MB_OK+MB_ICONERROR);
+      Exit;
+    end;
 
   // Ativar campos e retornar para o Setup Inicial
   SetupInicial();
@@ -264,16 +271,6 @@ begin
   frmPesquisaCodBarras:= TfrmPesquisaCodBarras.Create(self);
   frmPesquisaCodBarras.ShowModal();
   frmPesquisaCodBarras.Free;
-end;
-
-procedure TCadastroProdutosRef.btnNovoMouseEnter(Sender: TObject);
-begin
-  Panel1.Color := $00716A6A;
-end;
-
-procedure TCadastroProdutosRef.btnNovoMouseLeave(Sender: TObject);
-begin
-  Panel1.Color := $00333333;
 end;
 
 procedure TCadastroProdutosRef.btnSairClick(Sender: TObject);

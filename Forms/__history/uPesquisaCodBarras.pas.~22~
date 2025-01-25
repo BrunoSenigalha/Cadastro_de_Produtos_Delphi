@@ -4,8 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Buttons, uGerenciarProduto,
-  uGerenciaGrupos, uGerenciaMarcas;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Buttons, uGerenciarProduto;
 
 type
   TfrmPesquisaCodBarras = class(TForm)
@@ -18,7 +17,6 @@ type
     btnCancelar: TSpeedButton;
     procedure btnBuscarClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
-    procedure ed_buscarcodbarrasKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -47,10 +45,10 @@ begin
      begin
        with CadastroProdutosRef do
        begin
-         ed_codbarras.Text   := qrProdutos.FieldByName('CodBarras').AsString;
-         ed_descricao.Text   := qrProdutos.FieldByName('ProdDescricao').AsString;
-         ed_preco.Text       := qrProdutos.FieldByName('ProdPreco').AsString;
-         ed_quantidade.Text  := qrProdutos.FieldByName('ProdQuantidade').AsString;
+         ed_codbarras.Text := qrProdutos.FieldByName('CodBarras').AsString;
+         ed_descricao.Text := qrProdutos.FieldByName('ProdDescricao').AsString;
+         ed_preco.Text := qrProdutos.FieldByName('ProdPreco').AsString;
+         ed_quantidade.Text := qrProdutos.FieldByName('ProdQuantidade').AsString;
          IDGrupo             := dsProdutos.DataSet.FieldByName('ProdGrupo').AsInteger;
          dbCBGrupo.Text      := uGerenciaGrupos.BuscarDescricaoGrupo(IDGrupo);
 
@@ -76,12 +74,6 @@ end;
 procedure TfrmPesquisaCodBarras.btnCancelarClick(Sender: TObject);
 begin
   frmPesquisaCodBarras.Close;
-end;
-
-procedure TfrmPesquisaCodBarras.ed_buscarcodbarrasKeyPress(Sender: TObject;
-  var Key: Char);
-begin
-  CadastroProdutosRef.ValidarEntradaNumerica(Key);
 end;
 
 end.

@@ -4,8 +4,8 @@ object CadastroProdutosRef: TCadastroProdutosRef
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'frmCadastroProdutosRef'
-  ClientHeight = 510
-  ClientWidth = 976
+  ClientHeight = 607
+  ClientWidth = 1081
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,7 +19,7 @@ object CadastroProdutosRef: TCadastroProdutosRef
   object pnButtons: TPanel
     Left = 0
     Top = 0
-    Width = 976
+    Width = 1081
     Height = 73
     Margins.Left = 5
     Margins.Top = 5
@@ -30,7 +30,6 @@ object CadastroProdutosRef: TCadastroProdutosRef
     Color = 3355443
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 1081
     object btnSalvar: TSpeedButton
       Left = 238
       Top = 0
@@ -121,7 +120,7 @@ object CadastroProdutosRef: TCadastroProdutosRef
       ExplicitHeight = 81
     end
     object btnSair: TSpeedButton
-      Left = 859
+      Left = 964
       Top = 0
       Width = 117
       Height = 73
@@ -143,7 +142,7 @@ object CadastroProdutosRef: TCadastroProdutosRef
       ExplicitHeight = 81
     end
     object btnBuscar: TSpeedButton
-      Left = 742
+      Left = 847
       Top = 0
       Width = 117
       Height = 73
@@ -175,7 +174,6 @@ object CadastroProdutosRef: TCadastroProdutosRef
       Color = 3355443
       ParentBackground = False
       TabOrder = 0
-      ExplicitHeight = 81
       object btnNovo: TSpeedButton
         Left = 0
         Top = 0
@@ -196,7 +194,6 @@ object CadastroProdutosRef: TCadastroProdutosRef
         Font.Style = []
         ParentFont = False
         OnClick = btnNovoClick
-        OnMouseEnter = btnNovoMouseEnter
         OnMouseLeave = btnNovoMouseLeave
         ExplicitLeft = -8
         ExplicitTop = 14
@@ -208,8 +205,8 @@ object CadastroProdutosRef: TCadastroProdutosRef
   object pnPrincipal: TPanel
     Left = 0
     Top = 73
-    Width = 976
-    Height = 437
+    Width = 1081
+    Height = 534
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
@@ -219,9 +216,6 @@ object CadastroProdutosRef: TCadastroProdutosRef
     Color = clWhite
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 81
-    ExplicitWidth = 1081
-    ExplicitHeight = 526
     object lbCodBarras: TLabel
       Left = 17
       Top = 24
@@ -340,6 +334,7 @@ object CadastroProdutosRef: TCadastroProdutosRef
       Font.Style = []
       ParentFont = False
       TabOrder = 0
+      OnKeyPress = ed_codbarrasKeyPress
     end
     object ed_descricao: TEdit
       Left = 238
@@ -391,11 +386,12 @@ object CadastroProdutosRef: TCadastroProdutosRef
       Font.Style = []
       ParentFont = False
       TabOrder = 3
+      OnKeyPress = ed_quantidadeKeyPress
     end
     object pnBase: TPanel
       Left = 0
-      Top = 358
-      Width = 976
+      Top = 455
+      Width = 1081
       Height = 79
       Margins.Left = 5
       Margins.Top = 5
@@ -413,8 +409,6 @@ object CadastroProdutosRef: TCadastroProdutosRef
       ParentBackground = False
       ParentFont = False
       TabOrder = 4
-      ExplicitTop = 447
-      ExplicitWidth = 1081
     end
     object dbCBGrupo: TDBComboBox
       Left = 516
@@ -422,6 +416,7 @@ object CadastroProdutosRef: TCadastroProdutosRef
       Width = 189
       Height = 25
       DataField = 'GrupoDescricao'
+      DataSource = dmConexoes.dsGrupos
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -436,6 +431,7 @@ object CadastroProdutosRef: TCadastroProdutosRef
       Width = 189
       Height = 25
       DataField = 'MarcaDescricao'
+      DataSource = dmConexoes.dsMarcas
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -451,6 +447,7 @@ object CadastroProdutosRef: TCadastroProdutosRef
       Height = 17
       Caption = 'Inativo'
       DataField = 'ProdInativo'
+      DataSource = dmConexoes.dsProdutos
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13

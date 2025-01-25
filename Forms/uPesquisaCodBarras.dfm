@@ -26,10 +26,6 @@ object frmPesquisaCodBarras: TfrmPesquisaCodBarras
     Font.Style = []
     ParentFont = False
     TabOrder = 0
-    ExplicitLeft = 312
-    ExplicitTop = 72
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object lbDescricao: TLabel
       Left = 64
       Top = 19
@@ -47,7 +43,7 @@ object frmPesquisaCodBarras: TfrmPesquisaCodBarras
       Font.Style = []
       ParentFont = False
     end
-    object ed_descricao: TEdit
+    object ed_buscarcodbarras: TEdit
       Left = 24
       Top = 46
       Width = 265
@@ -57,12 +53,14 @@ object frmPesquisaCodBarras: TfrmPesquisaCodBarras
       Margins.Right = 5
       Margins.Bottom = 5
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWhite
+      Font.Color = clBlack
       Font.Height = -13
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
       TabOrder = 0
+      StyleName = 'Windows'
+      OnKeyPress = ed_buscarcodbarrasKeyPress
     end
     object Panel2: TPanel
       Left = 24

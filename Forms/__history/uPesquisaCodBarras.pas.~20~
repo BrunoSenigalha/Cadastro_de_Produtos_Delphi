@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Buttons, uGerenciarProduto, uCadastroProdutosReformulado;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Buttons, uGerenciarProduto;
 
 type
   TfrmPesquisaCodBarras = class(TForm)
@@ -16,8 +16,7 @@ type
     btnBuscar: TSpeedButton;
     btnCancelar: TSpeedButton;
     procedure btnBuscarClick(Sender: TObject);
-//    procedure btnBuscarClick(Sender: TObject);
-//    function BuscarProduto(const codBarras : string);
+    procedure btnCancelarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -31,12 +30,7 @@ implementation
 
 {$R *.dfm}
 
-uses uConexoes;
-
-//procedure TfrmPesquisaCodBarras.btnBuscarClick(Sender: TObject);
-//begin
-//
-//end;
+uses uConexoes, uCadastroProdutosReformulado;
 
 procedure TfrmPesquisaCodBarras.btnBuscarClick(Sender: TObject);
 begin
@@ -46,14 +40,18 @@ begin
       Application.MessageBox('Produto não localizado', 'AVISO', MB_OK+MB_ICONINFORMATION)
     else
      begin
-       with CadastroProdutosReformulado do
+       with CadastroProdutosRef do
        begin
          ed_codbarras.Text := qrProdutos.FieldByName('CodBarras').AsString;
        end;
+       frmPesquisaCodBarras.Close;
      end;
    end;
+end;
 
-
+procedure TfrmPesquisaCodBarras.btnCancelarClick(Sender: TObject);
+begin
+  frmPesquisaCodBarras.Close;
 end;
 
 end.

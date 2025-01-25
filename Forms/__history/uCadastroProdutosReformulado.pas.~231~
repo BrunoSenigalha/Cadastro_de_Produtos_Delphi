@@ -42,8 +42,6 @@ type
     procedure btnNovoClick(Sender: TObject);
     procedure btnExcluirClick(Sender: TObject);
     procedure btnSairClick(Sender: TObject);
-    procedure btnNovoMouseEnter(Sender: TObject);
-    procedure btnNovoMouseLeave(Sender: TObject);
     procedure btnEditarClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
     procedure btnBuscarClick(Sender: TObject);
@@ -103,8 +101,8 @@ end;
 procedure TCadastroProdutosRef.SetupInicial();
 begin
   // Gerenciar os botões com Setup Inicial e fazer o preenchimento dos campos
-  uGerenciarProduto.AtivarDesativarBotoes('INICIAL', [btnNovo, btnEditar, btnSalvar, btnCancelar, btnExcluir]);
-  uGerenciarProduto.PreencherCamposDefault(ed_codbarras, ed_descricao, ed_preco, ed_quantidade, dbCBGrupo,
+    uGerenciarProduto.AtivarDesativarBotoes('INICIAL', [btnNovo, btnEditar, btnSalvar, btnCancelar, btnExcluir, btnBuscar]);
+    uGerenciarProduto.PreencherCamposDefault(ed_codbarras, ed_descricao, ed_preco, ed_quantidade, dbCBGrupo,
     dbCBMarca, DBCheckBoxInativo);
 
 end;
@@ -154,7 +152,7 @@ end;
 
 procedure TCadastroProdutosRef.btnNovoClick(Sender: TObject);
 begin
-  uGerenciarProduto.AtivarDesativarBotoes('NOVO', [btnNovo, btnEditar, btnSalvar, btnCancelar, btnExcluir]);
+  uGerenciarProduto.AtivarDesativarBotoes('NOVO', [btnNovo, btnEditar, btnSalvar, btnCancelar, btnExcluir, btnBuscar]);
 
   // Limpa os campos e Ativa
   LimparCampos();
@@ -174,9 +172,12 @@ procedure TCadastroProdutosRef.btnEditarClick(Sender: TObject);
 begin
   // Ativa todos os campos
   AtivarCampos(True);
-
+  with dmConexoes do
+  begin
+    qrProdutos.Edit;
+  end;
   // Ativa os botões
-  uGerenciarProduto.AtivarDesativarBotoes('EDITAR', [btnNovo, btnEditar, btnSalvar, btnCancelar, btnExcluir]);
+  uGerenciarProduto.AtivarDesativarBotoes('EDITAR', [btnNovo, btnEditar, btnSalvar, btnCancelar, btnExcluir, btnBuscar]);
 
 end;
 
@@ -205,9 +206,9 @@ var
   idGrupo, idMarca, inativo : Integer;
   descricaoGrupo : string;
 begin
-  if ed_codbarras.Text = '' then
+  if uGerenciarProduto.CampoVazio() then
   begin
-      Application.MessageBox('Preencher o código de Barras', 'Aviso', MB_OK+MB_ICONERROR);
+      Application.MessageBox('Todos os campos devem ser preenchidos', 'Aviso', MB_OK+MB_ICONERROR);
       Exit;
   end;
 
@@ -261,16 +262,6 @@ begin
   frmPesquisaCodBarras:= TfrmPesquisaCodBarras.Create(self);
   frmPesquisaCodBarras.ShowModal();
   frmPesquisaCodBarras.Free;
-end;
-
-procedure TCadastroProdutosRef.btnNovoMouseEnter(Sender: TObject);
-begin
-  Panel1.Color := $00716A6A;
-end;
-
-procedure TCadastroProdutosRef.btnNovoMouseLeave(Sender: TObject);
-begin
-  Panel1.Color := $00333333;
 end;
 
 procedure TCadastroProdutosRef.btnSairClick(Sender: TObject);

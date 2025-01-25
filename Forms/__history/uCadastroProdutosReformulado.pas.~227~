@@ -103,8 +103,8 @@ end;
 procedure TCadastroProdutosRef.SetupInicial();
 begin
   // Gerenciar os botões com Setup Inicial e fazer o preenchimento dos campos
-  uGerenciarProduto.AtivarDesativarBotoes('INICIAL', [btnNovo, btnEditar, btnSalvar, btnCancelar, btnExcluir]);
-  uGerenciarProduto.PreencherCamposDefault(ed_codbarras, ed_descricao, ed_preco, ed_quantidade, dbCBGrupo,
+    uGerenciarProduto.AtivarDesativarBotoes('INICIAL', [btnNovo, btnEditar, btnSalvar, btnCancelar, btnExcluir]);
+    uGerenciarProduto.PreencherCamposDefault(ed_codbarras, ed_descricao, ed_preco, ed_quantidade, dbCBGrupo,
     dbCBMarca, DBCheckBoxInativo);
 
 end;
@@ -174,7 +174,10 @@ procedure TCadastroProdutosRef.btnEditarClick(Sender: TObject);
 begin
   // Ativa todos os campos
   AtivarCampos(True);
-
+  with dmConexoes do
+  begin
+    qrProdutos.Edit;
+  end;
   // Ativa os botões
   uGerenciarProduto.AtivarDesativarBotoes('EDITAR', [btnNovo, btnEditar, btnSalvar, btnCancelar, btnExcluir]);
 
@@ -263,15 +266,6 @@ begin
   frmPesquisaCodBarras.Free;
 end;
 
-procedure TCadastroProdutosRef.btnNovoMouseEnter(Sender: TObject);
-begin
-  Panel1.Color := $00716A6A;
-end;
-
-procedure TCadastroProdutosRef.btnNovoMouseLeave(Sender: TObject);
-begin
-  Panel1.Color := $00333333;
-end;
 
 procedure TCadastroProdutosRef.btnSairClick(Sender: TObject);
 begin

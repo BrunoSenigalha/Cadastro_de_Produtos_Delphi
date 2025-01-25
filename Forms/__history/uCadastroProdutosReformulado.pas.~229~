@@ -42,8 +42,6 @@ type
     procedure btnNovoClick(Sender: TObject);
     procedure btnExcluirClick(Sender: TObject);
     procedure btnSairClick(Sender: TObject);
-    procedure btnNovoMouseEnter(Sender: TObject);
-    procedure btnNovoMouseLeave(Sender: TObject);
     procedure btnEditarClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
     procedure btnBuscarClick(Sender: TObject);
@@ -103,7 +101,7 @@ end;
 procedure TCadastroProdutosRef.SetupInicial();
 begin
   // Gerenciar os botões com Setup Inicial e fazer o preenchimento dos campos
-    uGerenciarProduto.AtivarDesativarBotoes('INICIAL', [btnNovo, btnEditar, btnSalvar, btnCancelar, btnExcluir]);
+    uGerenciarProduto.AtivarDesativarBotoes('INICIAL', [btnNovo, btnEditar, btnSalvar, btnCancelar, btnExcluir, btnBuscar]);
     uGerenciarProduto.PreencherCamposDefault(ed_codbarras, ed_descricao, ed_preco, ed_quantidade, dbCBGrupo,
     dbCBMarca, DBCheckBoxInativo);
 
@@ -154,7 +152,7 @@ end;
 
 procedure TCadastroProdutosRef.btnNovoClick(Sender: TObject);
 begin
-  uGerenciarProduto.AtivarDesativarBotoes('NOVO', [btnNovo, btnEditar, btnSalvar, btnCancelar, btnExcluir]);
+  uGerenciarProduto.AtivarDesativarBotoes('NOVO', [btnNovo, btnEditar, btnSalvar, btnCancelar, btnExcluir, btnBuscar]);
 
   // Limpa os campos e Ativa
   LimparCampos();
@@ -174,9 +172,12 @@ procedure TCadastroProdutosRef.btnEditarClick(Sender: TObject);
 begin
   // Ativa todos os campos
   AtivarCampos(True);
-
+  with dmConexoes do
+  begin
+    qrProdutos.Edit;
+  end;
   // Ativa os botões
-  uGerenciarProduto.AtivarDesativarBotoes('EDITAR', [btnNovo, btnEditar, btnSalvar, btnCancelar, btnExcluir]);
+  uGerenciarProduto.AtivarDesativarBotoes('EDITAR', [btnNovo, btnEditar, btnSalvar, btnCancelar, btnExcluir, btnBuscar]);
 
 end;
 
@@ -263,15 +264,6 @@ begin
   frmPesquisaCodBarras.Free;
 end;
 
-procedure TCadastroProdutosRef.btnNovoMouseEnter(Sender: TObject);
-begin
-  Panel1.Color := $00716A6A;
-end;
-
-procedure TCadastroProdutosRef.btnNovoMouseLeave(Sender: TObject);
-begin
-  Panel1.Color := $00333333;
-end;
 
 procedure TCadastroProdutosRef.btnSairClick(Sender: TObject);
 begin

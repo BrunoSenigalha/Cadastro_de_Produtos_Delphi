@@ -22,11 +22,11 @@ procedure BuscarProduto(codBarras : string);
 begin
    with dmConexoes do
    begin
-      qrProdutos.Close;
-      qrProdutos.SQL.Clear;
-      qrProdutos.SQL.Add('SELECT * FROM PRODUTOS WHERE CodBarras = :pCodBarras');
-      qrProdutos.Parameters.ParamByName('pCodBarras').Value:= codBarras;
-      qrProdutos.Open;
+      qrComando.Close;
+      qrComando.SQL.Clear;
+      qrComando.SQL.Add('SELECT * FROM PRODUTOS WHERE CodBarras = :pCodBarras');
+      qrComando.Parameters.ParamByName('pCodBarras').Value:= codBarras;
+      qrComando.Open;
    end;
 end;
 
@@ -47,9 +47,9 @@ begin
   with dmConexoes do
   begin
     BuscarProduto(codBarras);
-    if not qrProdutos.IsEmpty then
+    if not qrComando.IsEmpty then
     begin
-      qrProdutos.Delete;
+      qrComando.Delete;
     end
     else
       Application.MessageBox('Produto não encontrado', 'AVISO', MB_OK+MB_ICONERROR);
@@ -70,7 +70,7 @@ begin
     else
     begin
       BuscarProduto(codBarras);
-      if not qrProdutos.IsEmpty then
+      if not qrComando.IsEmpty then
       begin
          Application.MessageBox('O Código de barras já foi cadastrado!', 'AVISO', MB_OK+MB_ICONWARNING);
          Exit;
@@ -145,11 +145,9 @@ begin
      Botoes[2].Enabled := True;
      Botoes[3].Enabled := True;
      Botoes[4].Enabled := False;
+     Botoes[5].Enabled := False;
 
-      with dmConexoes do
-      begin
-        qrProdutos.Insert;
-      end;
+     dmConexoes.qrProdutos.Insert;
     end;
 
   1:begin
@@ -158,11 +156,9 @@ begin
      Botoes[2].Enabled := True;
      Botoes[3].Enabled := True;
      Botoes[4].Enabled := True;
+     Botoes[5].Enabled := False;
 
-      with dmConexoes do
-      begin
-        qrProdutos.Edit;
-      end;
+     dmConexoes.qrProdutos.Edit;
     end;
 
   2:begin
@@ -171,6 +167,7 @@ begin
      Botoes[2].Enabled := False;
      Botoes[3].Enabled := False;
      Botoes[4].Enabled := False;
+     Botoes[5].Enabled := True;
     end;
 
   end;

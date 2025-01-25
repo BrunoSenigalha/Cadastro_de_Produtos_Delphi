@@ -15,8 +15,12 @@ procedure Excluir(codBarras : string);
 procedure AtivarDesativarBotoes(const NomeBotao : string; const Botoes : array of TSpeedButton);
 procedure PreencherCamposDefault(ed_codbarras, ed_descricao, ed_preco, ed_quantidade: TEdit; dbCBGrupo,
   dbCBMarca : TDBComboBox; DBCheckBoxInativo: TDBCheckBox);
+function CampoVazio(): Boolean;
 
 implementation
+
+uses
+  uCadastroProdutosReformulado;
 
 procedure BuscarProduto(codBarras : string);
 begin
@@ -145,6 +149,8 @@ begin
      Botoes[2].Enabled := True;
      Botoes[3].Enabled := True;
      Botoes[4].Enabled := False;
+     Botoes[5].Enabled := False;
+
      dmConexoes.qrProdutos.Insert;
     end;
 
@@ -154,11 +160,9 @@ begin
      Botoes[2].Enabled := True;
      Botoes[3].Enabled := True;
      Botoes[4].Enabled := True;
+     Botoes[5].Enabled := False;
 
-      with dmConexoes do
-      begin
-        qrProdutos.Edit;
-      end;
+     dmConexoes.qrProdutos.Edit;
     end;
 
   2:begin
@@ -167,8 +171,26 @@ begin
      Botoes[2].Enabled := False;
      Botoes[3].Enabled := False;
      Botoes[4].Enabled := False;
+     Botoes[5].Enabled := True;
     end;
 
+  end;
+end;
+
+function CampoVazio(): Boolean;
+begin
+  with CadastroProdutosRef do
+  begin
+    if Trim(ed_codbarras.Text) = '' then
+      Result:= True
+    else if Trim(ed_descricao.Text) = '' then
+      Result:= True
+    else if Trim(ed_preco.Text) = '' then
+      Result:= True
+    else if Trim(ed_quantidade.Text) = '' then
+      Result:= True
+    else
+      Result:= False;
   end;
 end;
 end.
