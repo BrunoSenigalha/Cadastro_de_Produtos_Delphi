@@ -3,7 +3,7 @@ object frmMain: TfrmMain
   Top = 0
   BorderStyle = bsSingle
   Caption = 'Produtos'
-  ClientHeight = 647
+  ClientHeight = 651
   ClientWidth = 917
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -128,7 +128,7 @@ object frmMain: TfrmMain
     Left = 0
     Top = 0
     Width = 917
-    Height = 647
+    Height = 651
     Align = alClient
     Picture.Data = {
       0A544A504547496D616765BAF60100FFD8FFE000104A46494600010100000100

@@ -17,8 +17,6 @@ type
     btnCancelar: TSpeedButton;
     procedure btnBuscarClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
-//    procedure btnBuscarClick(Sender: TObject);
-//    function BuscarProduto(const codBarras : string);
   private
     { Private declarations }
   public

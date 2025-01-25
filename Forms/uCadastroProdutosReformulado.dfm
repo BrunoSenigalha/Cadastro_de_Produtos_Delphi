@@ -419,6 +419,7 @@ object CadastroProdutosRef: TCadastroProdutosRef
       Width = 189
       Height = 25
       DataField = 'GrupoDescricao'
+      DataSource = dmConexoes.dsGrupos
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -433,6 +434,7 @@ object CadastroProdutosRef: TCadastroProdutosRef
       Width = 189
       Height = 25
       DataField = 'MarcaDescricao'
+      DataSource = dmConexoes.dsMarcas
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -448,6 +450,7 @@ object CadastroProdutosRef: TCadastroProdutosRef
       Height = 17
       Caption = 'Inativo'
       DataField = 'ProdInativo'
+      DataSource = dmConexoes.dsProdutos
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13

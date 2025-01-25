@@ -85,6 +85,8 @@ begin
     ed_quantidade.Enabled := True;
     dbCBMarca.Enabled     := True;
     dbCBGrupo.Enabled     := True;
+    DBCheckBoxInativo.Enabled := True;
+
   end
   else
   begin
@@ -94,15 +96,16 @@ begin
     ed_quantidade.Enabled := False;
     dbCBMarca.Enabled     := False;
     dbCBGrupo.Enabled     := False;
+    DBCheckBoxInativo.Enabled := False;
   end;
 end;
 
 procedure TCadastroProdutosRef.SetupInicial();
 begin
   // Gerenciar os botões com Setup Inicial e fazer o preenchimento dos campos
-  uGerenciarProduto.AtivarDesativarBotoes('INICIAL', [btnNovo, btnEditar, btnSalvar, btnCancelar, btnExcluir]);
-  uGerenciarProduto.PreencherCamposDefault((ed_codbarras, ed_descricao, ed_preco, ed_quantidade, dbCBGrupo,
-  dbCBMarca, DBCheckBoxInativo);
+    uGerenciarProduto.AtivarDesativarBotoes('INICIAL', [btnNovo, btnEditar, btnSalvar, btnCancelar, btnExcluir]);
+    uGerenciarProduto.PreencherCamposDefault(ed_codbarras, ed_descricao, ed_preco, ed_quantidade, dbCBGrupo,
+    dbCBMarca, DBCheckBoxInativo);
 
 end;
 
@@ -171,7 +174,10 @@ procedure TCadastroProdutosRef.btnEditarClick(Sender: TObject);
 begin
   // Ativa todos os campos
   AtivarCampos(True);
-
+  with dmConexoes do
+  begin
+    qrProdutos.Edit;
+  end;
   // Ativa os botões
   uGerenciarProduto.AtivarDesativarBotoes('EDITAR', [btnNovo, btnEditar, btnSalvar, btnCancelar, btnExcluir]);
 
