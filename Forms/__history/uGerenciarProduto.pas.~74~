@@ -1,0 +1,177 @@
+unit uGerenciarProduto;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Vcl.Controls, Vcl.Forms, Vcl.StdCtrls,
+  Data.Win.ADODB, Data.DB, uConexoes, Winapi.Windows, Vcl.Buttons, StrUtils,
+  Vcl.DBCtrls, uGerenciaGrupos, uGerenciaMarcas, System.Math, uCadastroProdutosReformulado;
+
+procedure SalvarProdutos(codBarras, descricao: String; preco: Double; grupo, marca, quantidade, inativo: Integer);
+procedure AtualizarCampos(codBarras, descricao: String; preco: Double; grupo, marca, quantidade, inativo: Integer);
+procedure BuscarProduto(codBarras : string);
+procedure CarregaProdutos;
+procedure Excluir(codBarras : string);
+procedure AtivarDesativarBotoes(const NomeBotao : string; const Botoes : array of TSpeedButton);
+procedure PreencherCamposDefault();
+
+implementation
+
+procedure BuscarProduto(codBarras : string);
+begin
+   with dmConexoes do
+   begin
+      qrProdutos.Close;
+      qrProdutos.SQL.Clear;
+      qrProdutos.SQL.Add('SELECT * FROM PRODUTOS WHERE CodBarras = :pCodBarras');
+      qrProdutos.Parameters.ParamByName('pCodBarras').Value:= codBarras;
+      qrProdutos.Open;
+   end;
+end;
+
+procedure CarregaProdutos;
+begin
+  with dmConexoes do
+  begin
+    qrProdutos.Close;
+    qrProdutos.SQL.Clear;
+    qrProdutos.SQL.Add('SELECT * FROM PRODUTOS');
+    qrProdutos.Open;
+    qrProdutos.First;
+  end;
+end;
+
+procedure Excluir(codBarras : string);
+begin
+  with dmConexoes do
+  begin
+    BuscarProduto(codBarras);
+    if not qrProdutos.IsEmpty then
+    begin
+      qrProdutos.Delete;
+    end
+    else
+      Application.MessageBox('Produto não encontrado', 'AVISO', MB_OK+MB_ICONERROR);
+  end;
+end;
+
+
+procedure SalvarProdutos(codBarras, descricao: String; preco: Double; grupo, marca, quantidade, inativo: Integer);
+begin
+  with dmConexoes do
+  begin
+    if qrProdutos.State = dsEdit then
+    begin
+      AtualizarCampos(codBarras, descricao, preco, grupo, marca, quantidade, inativo);
+      Application.MessageBox('Produto atualizado com sucesso!', 'AVISO', MB_OK+MB_ICONINFORMATION);
+    end
+
+    else
+    begin
+      BuscarProduto(codBarras);
+      if not qrComando.IsEmpty then
+      begin
+         Application.MessageBox('O Código de barras já foi cadastrado!', 'AVISO', MB_OK+MB_ICONWARNING);
+         Exit;
+      end;
+       AtualizarCampos(codBarras, descricao, preco, grupo, marca, quantidade, inativo);
+       Application.MessageBox('Produto cadastrado com sucesso!', 'AVISO', MB_OK+MB_ICONINFORMATION);
+    end;
+  end;
+end;
+
+procedure AtualizarCampos(codBarras, descricao: String; preco: Double; grupo, marca, quantidade, inativo: Integer);
+begin
+  with dmConexoes do
+  begin
+    qrProdutos.FieldByName('CodBarras').Value       :=codBarras;
+    qrProdutos.FieldByName('ProdDescricao').Value   :=descricao;
+    qrProdutos.FieldByName('ProdGrupo').Value       :=grupo;
+    qrProdutos.FieldByName('ProdMarca').Value       :=marca;
+    qrProdutos.FieldByName('ProdPreco').Value       :=preco;
+    qrProdutos.FieldByName('ProdQuantidade').Value  :=quantidade;
+    qrProdutos.FieldByName('ProdInativo').Value     :=inativo;
+    qrProdutos.Post;
+   end;
+end;
+
+procedure PreencherCamposDefault(ed_codbarras, ed_descricao, ed_preco, ed_quantidade: TEdit; dbCBGrupo,
+  dbCBMarca : TDBComboBox; DBCheckBoxInativo: TDBCheckBox);
+var
+  IDGrupo, IDMarca: integer;
+  Inativo : boolean;
+
+begin
+  with dmConexoes do
+  begin
+
+    CarregaProdutos();
+
+    if not qrProdutos.IsEmpty then
+      begin
+        ed_codbarras.Text   := dsProdutos.DataSet.FieldByName('CodBarras').AsString;
+        ed_descricao.Text   := dsProdutos.DataSet.FieldByName('ProdDescricao').AsString;
+        ed_preco.Text       := dsProdutos.DataSet.FieldByName('ProdPreco').AsString;
+        ed_quantidade.Text  := dsProdutos.DataSet.FieldByName('ProdQuantidade').AsString;
+
+        IDGrupo             := dsProdutos.DataSet.FieldByName('ProdGrupo').AsInteger;
+        dbCBGrupo.Text      := uGerenciaGrupos.BuscarDescricaoGrupo(IDGrupo);
+
+        IDMarca             := dsProdutos.DataSet.FieldByName('ProdMarca').AsInteger;
+        dbCBMarca.Text      := uGerenciaMarcas.BuscarDescricaoMarca(IDMarca);
+
+        Inativo             := dsProdutos.DataSet.FieldByName('ProdInativo').AsBoolean;
+
+        if Inativo then
+        begin
+          DBCheckBoxInativo.State   := cbChecked;
+        end
+        else
+        begin
+          DBCheckBoxInativo.State   := cbUnchecked;
+        end;
+    end;
+  end;
+end;
+
+procedure AtivarDesativarBotoes(const NomeBotao : string; const Botoes : array of TSpeedButton);
+begin
+  case AnsiIndexStr(UpperCase(NomeBotao), ['NOVO', 'EDITAR', 'INICIAL']) of
+
+  0:begin
+     Botoes[0].Enabled := False;
+     Botoes[1].Enabled := False;
+     Botoes[2].Enabled := True;
+     Botoes[3].Enabled := True;
+     Botoes[4].Enabled := False;
+
+      with dmConexoes do
+      begin
+        qrProdutos.Insert;
+      end;
+    end;
+
+  1:begin
+     Botoes[0].Enabled := False;
+     Botoes[1].Enabled := False;
+     Botoes[2].Enabled := True;
+     Botoes[3].Enabled := True;
+     Botoes[4].Enabled := True;
+
+      with dmConexoes do
+      begin
+        qrProdutos.Edit;
+      end;
+    end;
+
+  2:begin
+     Botoes[0].Enabled := True;
+     Botoes[1].Enabled := True;
+     Botoes[2].Enabled := False;
+     Botoes[3].Enabled := False;
+     Botoes[4].Enabled := False;
+    end;
+
+  end;
+end;
+end.

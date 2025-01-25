@@ -6,7 +6,8 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Buttons, Vcl.StdCtrls,
   Vcl.ComCtrls, Data.DB, Vcl.Grids, Vcl.DBGrids, uConexoes, Datasnap.DBClient, uGerenciarProduto,
-  Vcl.DBCtrls, System.Math, uValidacaoCampos, uGerenciaGrupos, uGerenciaMarcas;
+  Vcl.DBCtrls, System.Math, uValidacaoCampos, uGerenciaGrupos, uGerenciaMarcas,
+  uPesquisaCodBarras;
 
 type
   TCadastroProdutosRef = class(TForm)
@@ -32,8 +33,8 @@ type
     dbCBGrupo: TDBComboBox;
     dbCBMarca: TDBComboBox;
     DBCheckBoxInativo: TDBCheckBox;
-    btnBuscar: TSpeedButton;
     Panel1: TPanel;
+    btnBuscar: TSpeedButton;
     procedure CarregarComboBoxGrupos;
     procedure CarregarComboBoxMarcas;
     procedure FormCreate(Sender: TObject);
@@ -43,9 +44,18 @@ type
     procedure btnSairClick(Sender: TObject);
     procedure btnNovoMouseEnter(Sender: TObject);
     procedure btnNovoMouseLeave(Sender: TObject);
+    procedure btnEditarClick(Sender: TObject);
+    procedure btnCancelarClick(Sender: TObject);
+    procedure btnBuscarClick(Sender: TObject);
+    procedure ed_codbarrasKeyPress(Sender: TObject; var Key: Char);
+    procedure ValidarEntradaNumerica(var Key: Char);
+    procedure ed_quantidadeKeyPress(Sender: TObject; var Key: Char);
 
   private
     procedure LimparCampos();
+    procedure AtivarCampos(const Ativar: Boolean);
+    procedure SetupInicial();
+
     { Private declarations }
   public
     { Public declarations }
@@ -65,30 +75,45 @@ begin
   ed_quantidade.Text := '';
 end;
 
+procedure TCadastroProdutosRef.AtivarCampos(const Ativar: Boolean);
+begin
+  if Ativar then
+  begin
+    ed_codbarras.Enabled  := True;
+    ed_descricao.Enabled  := True;
+    ed_preco.Enabled      := True;
+    ed_quantidade.Enabled := True;
+    dbCBMarca.Enabled     := True;
+    dbCBGrupo.Enabled     := True;
+  end
+  else
+  begin
+    ed_codbarras.Enabled  := False;
+    ed_descricao.Enabled  := False;
+    ed_preco.Enabled      := False;
+    ed_quantidade.Enabled := False;
+    dbCBMarca.Enabled     := False;
+    dbCBGrupo.Enabled     := False;
+  end;
+end;
 
+procedure TCadastroProdutosRef.SetupInicial();
+begin
+  // Gerenciar os botões com Setup Inicial e fazer o preenchimento dos campos
+  uGerenciarProduto.AtivarDesativarBotoes('INICIAL', [btnNovo, btnEditar, btnSalvar, btnCancelar, btnExcluir]);
+  uGerenciarProduto.PreencherCamposDefault((ed_codbarras, ed_descricao, ed_preco, ed_quantidade, dbCBGrupo,
+  dbCBMarca, DBCheckBoxInativo);
 
+end;
 
 procedure TCadastroProdutosRef.FormCreate(Sender: TObject);
-var
-  IDGrupo: integer;
-  IDMarca: integer;
 begin
+
+  AtivarCampos(False);
+  SetupInicial();
   CarregarComboBoxGrupos();
   CarregarComboBoxMarcas();
 
-  with dmConexoes do
-  begin
-    uGerenciarProduto.CarregaProdutos();
-
-    ed_codbarras.Text   := dsProdutos.DataSet.FieldByName('CodBarras').AsString;
-    ed_descricao.Text   := dsProdutos.DataSet.FieldByName('ProdDescricao').AsString;
-    ed_preco.Text       := dsProdutos.DataSet.FieldByName('ProdPreco').AsString;
-    IDGrupo             := dsProdutos.DataSet.FieldByName('ProdGrupo').AsInteger;
-    dbCBGrupo.Text      := uGerenciaGrupos.BuscarDescricaoGrupo(IDGrupo);
-    IDMarca             := dsProdutos.DataSet.FieldByName('ProdMarca').AsInteger;
-    dbCBMarca.Text      := uGerenciaMarcas.BuscarDescricaoMarca(IDMarca);
-    ed_quantidade.Text  := dsProdutos.DataSet.FieldByName('ProdQuantidade').AsString;
-  end;
 end;
 
 procedure TCadastroProdutosRef.CarregarComboBoxGrupos;
@@ -106,15 +131,13 @@ begin
       dsGrupos.DataSet.Next;
     end;
   end;
-
 end;
 
 procedure TCadastroProdutosRef.CarregarComboBoxMarcas;
 begin
   with dmConexoes do
   begin
-     dbCBMarca.Items.Clear;
-
+    dbCBMarca.Items.Clear;
     dsMarcas.DataSet.First;
 
     while not dsMarcas.DataSet.Eof do
@@ -125,35 +148,117 @@ begin
   end;
 end;
 
-procedure TCadastroProdutosRef.btnExcluirClick(Sender: TObject);
-begin
-  with dmConexoes do
-  begin
-    if Application.MessageBox('Deseja Excluir?', 'Aviso',MB_YESNO+MB_ICONQUESTION) = 6 then
-     begin
-        uGerenciarProduto.ExcluirProduto(ed_codbarras.Text);
-
-        if not qrProdutos.IsEmpty then
-        begin
-          qrProdutos.Delete;
-          LimparCampos();
-        end;
-     end;
-  end;
-end;
 
 procedure TCadastroProdutosRef.btnNovoClick(Sender: TObject);
 begin
-  with dmConexoes do
-  begin
-    LimparCampos();
-    qrProdutos.Insert;
-  end;
+  uGerenciarProduto.AtivarDesativarBotoes('NOVO', [btnNovo, btnEditar, btnSalvar, btnCancelar, btnExcluir]);
+
+  // Limpa os campos e Ativa
+  LimparCampos();
+  AtivarCampos(True);
+
 end;
 
+procedure TCadastroProdutosRef.btnCancelarClick(Sender: TObject);
+begin
 
+  SetupInicial();
+  AtivarCampos(False);
 
+end;
 
+procedure TCadastroProdutosRef.btnEditarClick(Sender: TObject);
+begin
+  // Ativa todos os campos
+  AtivarCampos(True);
+
+  // Ativa os botões
+  uGerenciarProduto.AtivarDesativarBotoes('EDITAR', [btnNovo, btnEditar, btnSalvar, btnCancelar, btnExcluir]);
+
+end;
+
+procedure TCadastroProdutosRef.btnExcluirClick(Sender: TObject);
+begin
+  if Application.MessageBox('Deseja Excluir?', 'Aviso',MB_YESNO+MB_ICONQUESTION) = 6 then
+   begin
+     try
+      uGerenciarProduto.Excluir(ed_codbarras.Text);
+     except
+      on E: Exception do
+      begin
+        ShowMessage('Erro ao excluir produto: ' + E.Message);
+        Exit;
+      end;
+     end;
+      LimparCampos();
+   end;
+
+   SetupInicial();
+   AtivarCampos(False);
+end;
+
+procedure TCadastroProdutosRef.btnSalvarClick(Sender: TObject);
+var
+  idGrupo, idMarca, inativo : Integer;
+  descricaoGrupo : string;
+begin
+  if ed_codbarras.Text = '' then
+  begin
+      Application.MessageBox('Preencher o código de Barras', 'Aviso', MB_OK+MB_ICONERROR);
+      Exit;
+  end;
+
+  idGrupo := uGerenciaGrupos.BuscaGrupo(dbCBGrupo.Text);
+  idMarca := uGerenciaMarcas.BuscaMarca(dbCBMarca.Text);
+  inativo := IfThen(DBCheckBoxInativo.State = cbChecked, 1, 0);
+
+  try
+    uGerenciarProduto.SalvarProdutos(ed_codbarras.Text, ed_descricao.Text, StrToFloat(ed_preco.Text),
+      idGrupo, idMarca, StrToInt(ed_quantidade.Text), inativo);
+
+  except
+    on E: Exception do
+    begin
+      ShowMessage('Erro ao cadastrar produto: ' + E.message);
+    end;
+  end;
+
+  // Ativar campos e retornar para o Setup Inicial
+  SetupInicial();
+  AtivarCampos(False);
+end;
+
+procedure TCadastroProdutosRef.ed_codbarrasKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  ValidarEntradaNumerica(Key);
+end;
+
+procedure TCadastroProdutosRef.ed_quantidadeKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+   ValidarEntradaNumerica(Key);
+end;
+
+procedure TCadastroProdutosRef.ValidarEntradaNumerica(var Key: Char);
+begin
+  // Permitir teclas de controle como Backspace
+   if CharInSet(Key, [#8]) then Exit;
+
+  // Permitir apenas números (0 a 9)
+  if not CharInSet(Key, ['0'..'9']) then
+   begin
+      Key := #0; //Cancela a entrada
+      Application.MessageBox('Digite apenas números!', 'AVISO', MB_OK+MB_ICONWARNING);
+   end;
+end;
+
+procedure TCadastroProdutosRef.btnBuscarClick(Sender: TObject);
+begin
+  frmPesquisaCodBarras:= TfrmPesquisaCodBarras.Create(self);
+  frmPesquisaCodBarras.ShowModal();
+  frmPesquisaCodBarras.Free;
+end;
 
 procedure TCadastroProdutosRef.btnNovoMouseEnter(Sender: TObject);
 begin
@@ -165,39 +270,9 @@ begin
   Panel1.Color := $00333333;
 end;
 
-procedure TCadastroProdutosRef.btnSalvarClick(Sender: TObject);
-var
-  idGrupo, idMarca, inativo : Integer;
-  descricaoGrupo : string;
-begin
-  with dmConexoes do
-  begin
-    if ed_codbarras.Text = '' then
-    begin
-        Application.MessageBox('Preencher o código de Barras', 'Aviso', MB_OK+MB_ICONERROR);
-        Exit;
-    end;
-
-    idGrupo := uGerenciaGrupos.BuscaGrupo(dbCBGrupo.Text);
-    idMarca := uGerenciaMarcas.BuscaMarca(dbCBMarca.Text);
-    inativo := IfThen(DBCheckBoxInativo.State = cbChecked, 1, 0);
-
-    try
-      uGerenciarProduto.SalvarProdutos(ed_codbarras.Text, ed_descricao.Text, StrToFloat(ed_preco.Text),
-        idGrupo, idMarca, StrToInt(ed_quantidade.Text), inativo);
-
-    except
-      on E: Exception do
-      begin
-        Application.MessageBox ('Erro ao cadastrar produto!',  'AVISO', MB_OK+MB_ICONERROR);
-        ShowMessage(E.message);
-      end;
-    end;
-  end;
-end;
-
 procedure TCadastroProdutosRef.btnSairClick(Sender: TObject);
 begin
   Close;
 end;
+
 end.

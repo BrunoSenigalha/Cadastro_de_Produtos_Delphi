@@ -152,12 +152,16 @@
         </DCCReference>
         <DCCReference Include="Forms\uGerenciaGrupos.pas"/>
         <DCCReference Include="Forms\uGerenciaMarcas.pas"/>
-        <DCCReference Include="Forms\uCadastroMarcas.pas">
-            <Form>Form1</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="Forms\uPesquisaProdutos.pas">
             <Form>frmPesquisaProdutos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\uPesquisaCodBarras.pas">
+            <Form>frmPesquisaCodBarras</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\uCadastroMarcas.pas">
+            <Form>frmCadastroMarcas</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">

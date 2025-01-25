@@ -1,0 +1,59 @@
+unit uPesquisaCodBarras;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Buttons, uGerenciarProduto;
+
+type
+  TfrmPesquisaCodBarras = class(TForm)
+    Panel1: TPanel;
+    ed_descricao: TEdit;
+    lbDescricao: TLabel;
+    Panel2: TPanel;
+    Panel3: TPanel;
+    btnBuscar: TSpeedButton;
+    btnCancelar: TSpeedButton;
+    procedure btnBuscarClick(Sender: TObject);
+//    procedure btnBuscarClick(Sender: TObject);
+//    function BuscarProduto(const codBarras : string);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPesquisaCodBarras: TfrmPesquisaCodBarras;
+
+implementation
+
+{$R *.dfm}
+
+uses uConexoes;
+
+//procedure TfrmPesquisaCodBarras.btnBuscarClick(Sender: TObject);
+//begin
+//
+//end;
+
+procedure TfrmPesquisaCodBarras.btnBuscarClick(Sender: TObject);
+begin
+ with dmConexoes do
+   begin
+    if not qrProdutos.locate('CodBarras', ed_descricao.Text,[]) then
+      Application.MessageBox('Produto não localizado', 'AVISO', MB_OK+MB_ICONINFORMATION)
+    else
+     begin
+       with CadastroProdutosReformulado do
+       begin
+         ed_codbarras.Text := qrProdutos.FieldByName('CodBarras').AsString;
+       end;
+     end;
+   end;
+
+
+end;
+
+end.

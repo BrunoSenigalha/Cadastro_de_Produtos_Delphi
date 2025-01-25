@@ -4,8 +4,8 @@ object CadastroProdutosRef: TCadastroProdutosRef
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'frmCadastroProdutosRef'
-  ClientHeight = 598
-  ClientWidth = 1057
+  ClientHeight = 607
+  ClientWidth = 1081
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,8 +19,8 @@ object CadastroProdutosRef: TCadastroProdutosRef
   object pnButtons: TPanel
     Left = 0
     Top = 0
-    Width = 1057
-    Height = 81
+    Width = 1081
+    Height = 73
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
@@ -34,7 +34,7 @@ object CadastroProdutosRef: TCadastroProdutosRef
       Left = 238
       Top = 0
       Width = 117
-      Height = 81
+      Height = 73
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
@@ -44,18 +44,19 @@ object CadastroProdutosRef: TCadastroProdutosRef
       Flat = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
-      Font.Height = -24
+      Font.Height = -19
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
       OnClick = btnSalvarClick
       ExplicitLeft = 252
+      ExplicitHeight = 81
     end
     object btnEditar: TSpeedButton
       Left = 121
       Top = 0
       Width = 117
-      Height = 81
+      Height = 73
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
@@ -65,17 +66,21 @@ object CadastroProdutosRef: TCadastroProdutosRef
       Flat = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
-      Font.Height = -24
+      Font.Height = -19
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
-      ExplicitLeft = 216
+      OnClick = btnEditarClick
+      OnMouseEnter = btnNovoMouseEnter
+      OnMouseLeave = btnNovoMouseLeave
+      ExplicitLeft = 129
+      ExplicitHeight = 81
     end
     object btnExcluir: TSpeedButton
       Left = 472
       Top = 0
       Width = 117
-      Height = 81
+      Height = 73
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
@@ -85,10 +90,11 @@ object CadastroProdutosRef: TCadastroProdutosRef
       Flat = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
-      Font.Height = -24
+      Font.Height = -19
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
+      OnClick = btnExcluirClick
       ExplicitLeft = 468
       ExplicitTop = 128
       ExplicitHeight = 90
@@ -97,7 +103,7 @@ object CadastroProdutosRef: TCadastroProdutosRef
       Left = 355
       Top = 0
       Width = 117
-      Height = 81
+      Height = 73
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
@@ -107,17 +113,19 @@ object CadastroProdutosRef: TCadastroProdutosRef
       Flat = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
-      Font.Height = -24
+      Font.Height = -19
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
+      OnClick = btnCancelarClick
       ExplicitLeft = 351
+      ExplicitHeight = 81
     end
     object btnSair: TSpeedButton
-      Left = 940
+      Left = 964
       Top = 0
       Width = 117
-      Height = 81
+      Height = 73
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
@@ -127,18 +135,19 @@ object CadastroProdutosRef: TCadastroProdutosRef
       Flat = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
-      Font.Height = -24
+      Font.Height = -19
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
       OnClick = btnSairClick
       ExplicitLeft = 756
+      ExplicitHeight = 81
     end
     object btnBuscar: TSpeedButton
-      Left = 823
+      Left = 847
       Top = 0
       Width = 117
-      Height = 81
+      Height = 73
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
@@ -148,18 +157,20 @@ object CadastroProdutosRef: TCadastroProdutosRef
       Flat = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
-      Font.Height = -24
+      Font.Height = -19
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
-      OnClick = btnSairClick
-      ExplicitLeft = 756
+      OnClick = btnBuscarClick
+      ExplicitLeft = 856
+      ExplicitTop = -10
+      ExplicitHeight = 81
     end
     object Panel1: TPanel
       Left = 0
       Top = 0
       Width = 121
-      Height = 81
+      Height = 73
       Align = alLeft
       BevelOuter = bvNone
       Color = 3355443
@@ -169,7 +180,7 @@ object CadastroProdutosRef: TCadastroProdutosRef
         Left = 0
         Top = 0
         Width = 121
-        Height = 81
+        Height = 73
         Cursor = crHandPoint
         Margins.Left = 5
         Margins.Top = 5
@@ -180,7 +191,7 @@ object CadastroProdutosRef: TCadastroProdutosRef
         Flat = True
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWhite
-        Font.Height = -24
+        Font.Height = -19
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
@@ -190,14 +201,15 @@ object CadastroProdutosRef: TCadastroProdutosRef
         ExplicitLeft = -8
         ExplicitTop = 14
         ExplicitWidth = 117
+        ExplicitHeight = 81
       end
     end
   end
   object pnPrincipal: TPanel
     Left = 0
-    Top = 81
-    Width = 1057
-    Height = 517
+    Top = 73
+    Width = 1081
+    Height = 534
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
@@ -210,8 +222,8 @@ object CadastroProdutosRef: TCadastroProdutosRef
     object lbCodBarras: TLabel
       Left = 17
       Top = 24
-      Width = 137
-      Height = 25
+      Width = 103
+      Height = 17
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
@@ -219,16 +231,16 @@ object CadastroProdutosRef: TCadastroProdutosRef
       Caption = 'C'#243'digo de Barras'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -18
+      Font.Height = -13
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
     end
     object lbDescricao: TLabel
-      Left = 305
+      Left = 237
       Top = 24
-      Width = 76
-      Height = 25
+      Width = 57
+      Height = 17
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
@@ -236,16 +248,16 @@ object CadastroProdutosRef: TCadastroProdutosRef
       Caption = 'Descri'#231#227'o'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -18
+      Font.Height = -13
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
     end
     object lb_grupo: TLabel
-      Left = 588
-      Top = 24
-      Width = 50
-      Height = 25
+      Left = 516
+      Top = 21
+      Width = 37
+      Height = 17
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
@@ -253,16 +265,16 @@ object CadastroProdutosRef: TCadastroProdutosRef
       Caption = 'Grupo'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -18
+      Font.Height = -13
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
     end
     object lb_marca: TLabel
-      Left = 813
-      Top = 24
-      Width = 48
-      Height = 25
+      Left = 741
+      Top = 21
+      Width = 37
+      Height = 17
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
@@ -270,7 +282,7 @@ object CadastroProdutosRef: TCadastroProdutosRef
       Caption = 'Marca'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -18
+      Font.Height = -13
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
@@ -278,8 +290,8 @@ object CadastroProdutosRef: TCadastroProdutosRef
     object Label4: TLabel
       Left = 17
       Top = 97
-      Width = 44
-      Height = 25
+      Width = 33
+      Height = 17
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
@@ -287,16 +299,16 @@ object CadastroProdutosRef: TCadastroProdutosRef
       Caption = 'Pre'#231'o'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -18
+      Font.Height = -13
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
     end
     object Label5: TLabel
-      Left = 306
+      Left = 238
       Top = 97
-      Width = 93
-      Height = 25
+      Width = 68
+      Height = 17
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
@@ -304,7 +316,7 @@ object CadastroProdutosRef: TCadastroProdutosRef
       Caption = 'Quantidade'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -18
+      Font.Height = -13
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
@@ -312,51 +324,77 @@ object CadastroProdutosRef: TCadastroProdutosRef
     object ed_codbarras: TEdit
       Left = 17
       Top = 54
-      Width = 244
-      Height = 27
+      Width = 192
+      Height = 25
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
       TabOrder = 0
+      OnKeyPress = ed_codbarrasKeyPress
     end
     object ed_descricao: TEdit
-      Left = 306
+      Left = 238
       Top = 54
       Width = 244
-      Height = 27
+      Height = 25
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
       TabOrder = 1
     end
     object ed_preco: TEdit
       Left = 17
       Top = 132
       Width = 176
-      Height = 27
+      Height = 25
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
       TabOrder = 2
     end
     object ed_quantidade: TEdit
-      Left = 306
+      Left = 238
       Top = 132
       Width = 176
-      Height = 27
+      Height = 25
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
       TabOrder = 3
+      OnKeyPress = ed_quantidadeKeyPress
     end
     object pnBase: TPanel
       Left = 0
-      Top = 438
-      Width = 1057
+      Top = 455
+      Width = 1081
       Height = 79
       Margins.Left = 5
       Margins.Top = 5
@@ -364,11 +402,11 @@ object CadastroProdutosRef: TCadastroProdutosRef
       Margins.Bottom = 5
       Align = alBottom
       BevelOuter = bvNone
-      Caption = 'Cadastro de Produto'
+      Caption = 'Sistema de Cadastro'
       Color = 3355443
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
-      Font.Height = -26
+      Font.Height = -19
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentBackground = False
@@ -376,31 +414,43 @@ object CadastroProdutosRef: TCadastroProdutosRef
       TabOrder = 4
     end
     object dbCBGrupo: TDBComboBox
-      Left = 588
-      Top = 57
+      Left = 516
+      Top = 54
       Width = 189
-      Height = 27
+      Height = 25
       DataField = 'GrupoDescricao'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
       TabOrder = 5
     end
     object dbCBMarca: TDBComboBox
-      Left = 813
-      Top = 57
+      Left = 741
+      Top = 54
       Width = 189
-      Height = 27
+      Height = 25
       DataField = 'MarcaDescricao'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
       TabOrder = 6
     end
     object DBCheckBoxInativo: TDBCheckBox
-      Left = 588
-      Top = 130
+      Left = 516
+      Top = 132
       Width = 97
       Height = 17
       Caption = 'Inativo'
       DataField = 'ProdInativo'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -19
+      Font.Height = -13
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False

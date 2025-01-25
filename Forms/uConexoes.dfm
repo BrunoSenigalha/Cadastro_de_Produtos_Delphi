@@ -1,5 +1,5 @@
 object dmConexoes: TdmConexoes
-  Height = 624
+  Height = 616
   Width = 791
   PixelsPerInch = 144
   object SQLServerConnection: TADOConnection
@@ -20,8 +20,8 @@ object dmConexoes: TdmConexoes
     Parameters = <>
     SQL.Strings = (
       'SELECT * FROM PRODUTOS')
-    Left = 160
-    Top = 272
+    Left = 78
+    Top = 370
     object qrProdutosIDProduto: TAutoIncField
       FieldName = 'IDProduto'
       ReadOnly = True
@@ -59,8 +59,8 @@ object dmConexoes: TdmConexoes
     Parameters = <>
     SQL.Strings = (
       'SELECT * FROM GRUPOS')
-    Left = 152
-    Top = 376
+    Left = 88
+    Top = 488
     object qrGruposIDGrupo: TAutoIncField
       FieldName = 'IDGrupo'
       ReadOnly = True
@@ -83,8 +83,8 @@ object dmConexoes: TdmConexoes
     Parameters = <>
     SQL.Strings = (
       'SELECT * FROM MARCAS')
-    Left = 261
-    Top = 377
+    Left = 181
+    Top = 489
   end
   object qrComando: TADOQuery
     Active = True

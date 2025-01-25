@@ -3,12 +3,12 @@ object frmMain: TfrmMain
   Top = 0
   BorderStyle = bsSingle
   Caption = 'Produtos'
-  ClientHeight = 643
+  ClientHeight = 647
   ClientWidth = 917
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -12
+  Font.Height = -13
   Font.Name = 'Segoe UI'
   Font.Style = []
   Icon.Data = {
@@ -120,14 +120,15 @@ object frmMain: TfrmMain
     0000000049454E44AE426082}
   Menu = MenuProdutos
   Position = poMainFormCenter
+  WindowState = wsMaximized
   OnClose = FormClose
   OnCreate = FormCreate
-  TextHeight = 15
+  TextHeight = 17
   object Background: TImage
     Left = 0
     Top = 0
     Width = 917
-    Height = 643
+    Height = 647
     Align = alClient
     Picture.Data = {
       0A544A504547496D616765BAF60100FFD8FFE000104A46494600010100000100
@@ -4154,10 +4155,8 @@ object frmMain: TfrmMain
       4500145145001451450014514500145145001451450014514500145145001451
       4500145145007FFFD9}
     Stretch = True
-    ExplicitLeft = 384
-    ExplicitTop = 168
-    ExplicitWidth = 105
-    ExplicitHeight = 105
+    ExplicitLeft = 8
+    ExplicitHeight = 643
   end
   object MenuProdutos: TMainMenu
     Left = 376
@@ -6226,6 +6225,7 @@ object frmMain: TfrmMain
       end
       object Marca1: TMenuItem
         Caption = 'Marcas'
+        OnClick = Marca1Click
       end
     end
     object Consu1: TMenuItem

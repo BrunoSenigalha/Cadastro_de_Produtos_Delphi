@@ -12,6 +12,7 @@ object frmCadastroGrupos: TfrmCadastroGrupos
   Font.Height = -21
   Font.Name = 'Segoe UI'
   Font.Style = []
+  Position = poDesktopCenter
   OnShow = FormShow
   TextHeight = 30
   object pnPrincipal: TPanel
@@ -29,33 +30,45 @@ object frmCadastroGrupos: TfrmCadastroGrupos
     TabOrder = 0
     object Label3: TLabel
       Left = 39
-      Top = 97
-      Width = 21
-      Height = 30
+      Top = 81
+      Width = 12
+      Height = 17
       Margins.Left = 4
       Margins.Top = 4
       Margins.Right = 4
       Margins.Bottom = 4
       Caption = 'ID'
       FocusControl = DBEdit3
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
     end
     object Label4: TLabel
       Left = 39
-      Top = 169
-      Width = 90
-      Height = 30
+      Top = 139
+      Width = 57
+      Height = 17
       Margins.Left = 4
       Margins.Top = 4
       Margins.Right = 4
       Margins.Bottom = 4
       Caption = 'Descri'#231#227'o'
       FocusControl = DBEdit4
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
     end
     object DBEdit3: TDBEdit
       Left = 39
-      Top = 123
+      Top = 107
       Width = 286
-      Height = 38
+      Height = 25
       Margins.Left = 4
       Margins.Top = 4
       Margins.Right = 4
@@ -63,24 +76,36 @@ object frmCadastroGrupos: TfrmCadastroGrupos
       DataField = 'IDGrupo'
       DataSource = dsGrupos
       Enabled = False
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
       TabOrder = 0
     end
     object DBEdit4: TDBEdit
       Left = 39
-      Top = 196
-      Width = 748
-      Height = 38
+      Top = 164
+      Width = 286
+      Height = 25
       Margins.Left = 4
       Margins.Top = 4
       Margins.Right = 4
       Margins.Bottom = 4
       DataField = 'GrupoDescricao'
       DataSource = dsGrupos
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
       TabOrder = 1
     end
     object DBCheckBox1: TDBCheckBox
       Left = 39
-      Top = 241
+      Top = 197
       Width = 194
       Height = 20
       Margins.Left = 4
@@ -90,11 +115,17 @@ object frmCadastroGrupos: TfrmCadastroGrupos
       Caption = 'Maior +18'
       DataField = 'GrupoMaior18'
       DataSource = dsGrupos
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
       TabOrder = 2
     end
     object DBCheckBox2: TDBCheckBox
       Left = 39
-      Top = 268
+      Top = 224
       Width = 194
       Height = 20
       Margins.Left = 4
@@ -104,6 +135,12 @@ object frmCadastroGrupos: TfrmCadastroGrupos
       Caption = 'Inativo'
       DataField = 'GrupoInativo'
       DataSource = dsGrupos
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
       TabOrder = 3
     end
     object pnButtons: TPanel
@@ -127,7 +164,7 @@ object frmCadastroGrupos: TfrmCadastroGrupos
         Flat = True
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWhite
-        Font.Height = -21
+        Font.Height = -19
         Font.Name = 'Segoe UI'
         Font.Style = [fsBold]
         Layout = blGlyphTop
@@ -145,12 +182,13 @@ object frmCadastroGrupos: TfrmCadastroGrupos
         Flat = True
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWhite
-        Font.Height = -21
+        Font.Height = -19
         Font.Name = 'Segoe UI'
         Font.Style = [fsBold]
         Layout = blGlyphTop
         ParentFont = False
         OnClick = btnEditarClick
+        ExplicitLeft = 109
       end
       object btnSalvar: TSpeedButton
         Left = 0
@@ -169,6 +207,7 @@ object frmCadastroGrupos: TfrmCadastroGrupos
         Layout = blGlyphTop
         ParentFont = False
         OnClick = btnSalvarClick
+        ExplicitLeft = -6
       end
       object btnNovo: TSpeedButton
         Left = 308
@@ -181,7 +220,7 @@ object frmCadastroGrupos: TfrmCadastroGrupos
         Flat = True
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWhite
-        Font.Height = -21
+        Font.Height = -19
         Font.Name = 'Segoe UI'
         Font.Style = [fsBold]
         Layout = blGlyphTop
@@ -199,44 +238,64 @@ object frmCadastroGrupos: TfrmCadastroGrupos
         Flat = True
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWhite
-        Font.Height = -21
+        Font.Height = -19
         Font.Name = 'Segoe UI'
         Font.Style = [fsBold]
         Layout = blGlyphTop
         ParentFont = False
         OnClick = btnAnteriorClick
-        ExplicitLeft = 572
+        ExplicitLeft = 404
       end
     end
     object PageControl1: TPageControl
       Left = 0
-      Top = 328
+      Top = 350
       Width = 813
-      Height = 282
+      Height = 260
       Margins.Left = 2
       Margins.Top = 2
       Margins.Right = 2
       Margins.Bottom = 2
       ActivePage = TabSheet1
       Align = alBottom
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
       TabOrder = 5
+      ExplicitTop = 272
+      ExplicitWidth = 654
       object TabSheet1: TTabSheet
         Margins.Left = 2
         Margins.Top = 2
         Margins.Right = 2
         Margins.Bottom = 2
         Caption = 'Consulta'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         object DBGrid1: TDBGrid
           Left = 0
           Top = 0
           Width = 805
-          Height = 237
+          Height = 224
           Margins.Left = 2
           Margins.Top = 2
           Margins.Right = 2
           Margins.Bottom = 2
           Align = alClient
           DataSource = dsGrupos
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
           ReadOnly = True
           TabOrder = 0
           TitleFont.Charset = DEFAULT_CHARSET
@@ -249,6 +308,11 @@ object frmCadastroGrupos: TfrmCadastroGrupos
               Expanded = False
               FieldName = 'IDGrupo'
               Title.Caption = 'ID'
+              Title.Font.Charset = DEFAULT_CHARSET
+              Title.Font.Color = clWindowText
+              Title.Font.Height = -16
+              Title.Font.Name = 'Segoe UI'
+              Title.Font.Style = []
               Width = 50
               Visible = True
             end
@@ -256,20 +320,36 @@ object frmCadastroGrupos: TfrmCadastroGrupos
               Expanded = False
               FieldName = 'GrupoDescricao'
               Title.Caption = 'Descricao'
-              Width = 250
+              Title.Font.Charset = DEFAULT_CHARSET
+              Title.Font.Color = clWindowText
+              Title.Font.Height = -16
+              Title.Font.Name = 'Segoe UI'
+              Title.Font.Style = []
+              Width = 217
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'GrupoMaior18'
-              Title.Caption = 'Maior 18 Anos'
-              Width = 155
+              Title.Caption = '+18'
+              Title.Font.Charset = DEFAULT_CHARSET
+              Title.Font.Color = clWindowText
+              Title.Font.Height = -16
+              Title.Font.Name = 'Segoe UI'
+              Title.Font.Style = []
+              Width = 224
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'GrupoInativo'
               Title.Caption = 'Inativo'
+              Title.Font.Charset = DEFAULT_CHARSET
+              Title.Font.Color = clWindowText
+              Title.Font.Height = -16
+              Title.Font.Name = 'Segoe UI'
+              Title.Font.Style = []
+              Width = 106
               Visible = True
             end>
         end
@@ -287,11 +367,11 @@ object frmCadastroGrupos: TfrmCadastroGrupos
     Margins.Bottom = 6
     Align = alBottom
     BevelOuter = bvNone
-    Caption = 'Programa do Bruno'
+    Caption = 'Sistema de Cadastro'
     Color = 3355443
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWhite
-    Font.Height = -21
+    Font.Height = -19
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentBackground = False

@@ -4,7 +4,7 @@ interface
 
 uses
    Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Menus, uCadastroProdutos,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Menus, uCadastroProdutos, uCadastroMarcas,
   uConexoes, Vcl.Imaging.jpeg; // Adicionado uConexoes para acesso ao DataModule
 
 type
@@ -24,6 +24,7 @@ type
     procedure Produtos21Click(Sender: TObject);
     procedure Sair1Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Marca1Click(Sender: TObject);
   private
 
     { Private declarations }
@@ -67,19 +68,12 @@ begin
   frmCadastroGrupos.Free;
 end;
 
-//procedure TfrmMain.Panel1MouseEnter(Sender: TObject);
-//begin
-//  case TPanel(Sender).Color of
-//    clBlack: TPanel(Sender).Color  := clMaroon;
-//    clMaroon: TPanel(Sender).Color := clGreen;
-//    clGreen: TPanel(Sender).Color  := clOlive;
-//    clOlive: TPanel(Sender).Color  := clBlack;
-//    else
-//      TPanel(Sender).Color := clWhite;
-//  end;
-//end;
-
-
+procedure TfrmMain.Marca1Click(Sender: TObject);
+begin
+  frmCadastroMarcas:= TfrmCadastroMarcas.Create(self);
+  frmCadastroMarcas.ShowModal;
+  frmCadastroMarcas.Free;
+end;
 
 procedure TfrmMain.Produtos21Click(Sender: TObject);
 begin
