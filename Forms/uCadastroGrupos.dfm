@@ -4,8 +4,8 @@ object frmCadastroGrupos: TfrmCadastroGrupos
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'frmCadastroGrupos'
-  ClientHeight = 560
-  ClientWidth = 782
+  ClientHeight = 559
+  ClientWidth = 817
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,8 +18,8 @@ object frmCadastroGrupos: TfrmCadastroGrupos
   object pnPrincipal: TPanel
     Left = 0
     Top = 0
-    Width = 782
-    Height = 488
+    Width = 817
+    Height = 487
     Margins.Left = 6
     Margins.Top = 6
     Margins.Right = 6
@@ -40,7 +40,7 @@ object frmCadastroGrupos: TfrmCadastroGrupos
       Margins.Right = 4
       Margins.Bottom = 4
       Caption = 'ID'
-      FocusControl = DBEdit3
+      FocusControl = DBEdit_ID
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -49,7 +49,7 @@ object frmCadastroGrupos: TfrmCadastroGrupos
       ParentFont = False
     end
     object Label4: TLabel
-      Left = 367
+      Left = 159
       Top = 82
       Width = 57
       Height = 17
@@ -58,7 +58,7 @@ object frmCadastroGrupos: TfrmCadastroGrupos
       Margins.Right = 4
       Margins.Bottom = 4
       Caption = 'Descri'#231#227'o'
-      FocusControl = DBEdit4
+      FocusControl = DBEdit_Descricao
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -66,10 +66,10 @@ object frmCadastroGrupos: TfrmCadastroGrupos
       Font.Style = []
       ParentFont = False
     end
-    object DBEdit3: TDBEdit
+    object DBEdit_ID: TDBEdit
       Left = 39
       Top = 107
-      Width = 286
+      Width = 90
       Height = 25
       Margins.Left = 4
       Margins.Top = 4
@@ -86,8 +86,8 @@ object frmCadastroGrupos: TfrmCadastroGrupos
       ParentFont = False
       TabOrder = 0
     end
-    object DBEdit4: TDBEdit
-      Left = 367
+    object DBEdit_Descricao: TDBEdit
+      Left = 159
       Top = 107
       Width = 286
       Height = 25
@@ -105,10 +105,10 @@ object frmCadastroGrupos: TfrmCadastroGrupos
       ParentFont = False
       TabOrder = 1
     end
-    object DBCheckBox1: TDBCheckBox
+    object DBCheckBox_Maior: TDBCheckBox
       Left = 39
       Top = 149
-      Width = 194
+      Width = 98
       Height = 20
       Margins.Left = 4
       Margins.Top = 4
@@ -125,10 +125,10 @@ object frmCadastroGrupos: TfrmCadastroGrupos
       ParentFont = False
       TabOrder = 2
     end
-    object DBCheckBox2: TDBCheckBox
+    object DBCheckBox_Inativo: TDBCheckBox
       Left = 39
       Top = 177
-      Width = 194
+      Width = 90
       Height = 20
       Margins.Left = 4
       Margins.Top = 4
@@ -148,7 +148,7 @@ object frmCadastroGrupos: TfrmCadastroGrupos
     object pnButtons: TPanel
       Left = 0
       Top = 0
-      Width = 782
+      Width = 817
       Height = 67
       Align = alTop
       BevelOuter = bvNone
@@ -157,7 +157,7 @@ object frmCadastroGrupos: TfrmCadastroGrupos
       TabOrder = 4
       ExplicitWidth = 813
       object btnExcluir: TSpeedButton
-        Left = 307
+        Left = 410
         Top = 0
         Width = 103
         Height = 67
@@ -234,7 +234,7 @@ object frmCadastroGrupos: TfrmCadastroGrupos
         ExplicitTop = -16
       end
       object btnAnterior: TSpeedButton
-        Left = 410
+        Left = 513
         Top = 0
         Width = 102
         Height = 67
@@ -253,7 +253,7 @@ object frmCadastroGrupos: TfrmCadastroGrupos
         ExplicitLeft = 404
       end
       object btnProximo: TSpeedButton
-        Left = 512
+        Left = 615
         Top = 0
         Width = 102
         Height = 67
@@ -272,7 +272,7 @@ object frmCadastroGrupos: TfrmCadastroGrupos
         ExplicitLeft = 610
       end
       object btnSair: TSpeedButton
-        Left = 683
+        Left = 718
         Top = 0
         Width = 99
         Height = 67
@@ -290,11 +290,31 @@ object frmCadastroGrupos: TfrmCadastroGrupos
         OnClick = btnSairClick
         ExplicitLeft = 614
       end
+      object btnCancelar: TSpeedButton
+        Left = 307
+        Top = 0
+        Width = 103
+        Height = 67
+        Cursor = crHandPoint
+        Align = alLeft
+        Caption = 'Cancelar'
+        Flat = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -19
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        Layout = blGlyphTop
+        ParentFont = False
+        OnClick = btnCancelarClick
+        ExplicitLeft = 290
+        ExplicitTop = -8
+      end
     end
     object PageControl1: TPageControl
       Left = 0
-      Top = 228
-      Width = 782
+      Top = 227
+      Width = 817
       Height = 260
       Margins.Left = 2
       Margins.Top = 2
@@ -310,6 +330,7 @@ object frmCadastroGrupos: TfrmCadastroGrupos
       ParentFont = False
       TabOrder = 5
       ExplicitTop = 220
+      ExplicitWidth = 782
       object TabSheet1: TTabSheet
         Margins.Left = 2
         Margins.Top = 2
@@ -325,7 +346,7 @@ object frmCadastroGrupos: TfrmCadastroGrupos
         object DBGrid1: TDBGrid
           Left = 0
           Top = 0
-          Width = 774
+          Width = 809
           Height = 224
           Margins.Left = 2
           Margins.Top = 2
@@ -368,7 +389,7 @@ object frmCadastroGrupos: TfrmCadastroGrupos
               Title.Font.Height = -16
               Title.Font.Name = 'Segoe UI'
               Title.Font.Style = []
-              Width = 217
+              Width = 348
               Visible = True
             end
             item
@@ -380,7 +401,7 @@ object frmCadastroGrupos: TfrmCadastroGrupos
               Title.Font.Height = -16
               Title.Font.Name = 'Segoe UI'
               Title.Font.Style = []
-              Width = 224
+              Width = 201
               Visible = True
             end
             item
@@ -392,7 +413,7 @@ object frmCadastroGrupos: TfrmCadastroGrupos
               Title.Font.Height = -16
               Title.Font.Name = 'Segoe UI'
               Title.Font.Style = []
-              Width = 106
+              Width = 161
               Visible = True
             end>
         end
@@ -401,8 +422,8 @@ object frmCadastroGrupos: TfrmCadastroGrupos
   end
   object pnBot: TPanel
     Left = 0
-    Top = 488
-    Width = 782
+    Top = 487
+    Width = 817
     Height = 72
     Margins.Left = 6
     Margins.Top = 6

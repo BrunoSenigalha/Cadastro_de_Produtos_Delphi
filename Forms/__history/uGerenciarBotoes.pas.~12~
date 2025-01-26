@@ -1,0 +1,88 @@
+unit uGerenciarBotoes;
+
+
+interface
+ uses
+    System.SysUtils, System.Classes, Vcl.Controls, Vcl.Forms, Vcl.StdCtrls,
+    Data.Win.ADODB, Data.DB, Winapi.Windows, Vcl.Buttons, System.StrUtils;
+
+procedure AtivarDesativarBotoes(const NomeBotao : string; const Botoes : array of TSpeedButton);
+procedure HabilitarGrupos(const Habilitar: boolean);
+procedure HabilitarMarcas(const Habilitar: boolean);
+
+implementation
+
+uses
+  uCadastroGrupos, uCadastroMarcas;
+procedure HabilitarGrupos(const Habilitar: boolean);
+begin
+  with frmCadastroGrupos do
+  begin
+    if Habilitar then
+    begin
+      DBEdit_ID.Enabled          := True;
+      DBEdit_Descricao.Enabled   := True;
+      DBCheckBox_Maior.Enabled   := True;
+      DBCheckBox_Inativo.Enabled := True;
+    end
+    else
+    begin
+      DBEdit_ID.Enabled          := False;
+      DBEdit_Descricao.Enabled   := False;
+      DBCheckBox_Maior.Enabled   := False;
+      DBCheckBox_Inativo.Enabled := False;
+    end;
+  end;
+end;
+
+procedure HabilitarMarcas(const Habilitar: boolean);
+begin
+  with frmCadastroMarcas do
+  begin
+    if Habilitar then
+    begin
+      DBEdit_ID.Enabled          := True;
+      DBEdit_Descricao.Enabled   := True;
+      DBCheckBox_Inativo.Enabled := True;
+    end;
+
+  end;
+end;
+
+procedure AtivarDesativarBotoes(const NomeBotao : string; const Botoes : array of TSpeedButton);
+begin
+  case AnsiIndexStr(UpperCase(NomeBotao), ['INICIAL','NOVO', 'EDITAR']) of
+
+  0:begin
+     Botoes[0].Enabled := True;
+     Botoes[1].Enabled := False;
+     Botoes[2].Enabled := True;
+     Botoes[3].Enabled := False;
+     Botoes[4].Enabled := False;
+     Botoes[5].Enabled := True;
+     Botoes[6].Enabled := True;
+    end;
+
+  1:begin
+     Botoes[0].Enabled := False;
+     Botoes[1].Enabled := True;
+     Botoes[2].Enabled := False;
+     Botoes[3].Enabled := True;
+     Botoes[4].Enabled := False;
+     Botoes[5].Enabled := False;
+     Botoes[6].Enabled := False;
+
+    end;
+
+  2:begin
+     Botoes[0].Enabled := False;
+     Botoes[1].Enabled := True;
+     Botoes[2].Enabled := False;
+     Botoes[3].Enabled := True;
+     Botoes[4].Enabled := True;
+     Botoes[5].Enabled := False;
+     Botoes[6].Enabled := False;
+    end;
+  end;
+end;
+end.

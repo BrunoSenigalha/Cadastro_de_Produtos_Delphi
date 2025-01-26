@@ -13,7 +13,8 @@ uses
   uGerenciaMarcas in 'Forms\uGerenciaMarcas.pas',
   uPesquisaProdutos in 'Forms\uPesquisaProdutos.pas' {frmPesquisaProdutos},
   uPesquisaCodBarras in 'Forms\uPesquisaCodBarras.pas' {frmPesquisaCodBarras},
-  uCadastroMarcas in 'Forms\uCadastroMarcas.pas' {frmCadastroMarcas};
+  uCadastroMarcas in 'Forms\uCadastroMarcas.pas' {frmCadastroMarcas},
+  uGerenciarBotoes in 'Forms\uGerenciarBotoes.pas';
 
 {$R *.res}
 

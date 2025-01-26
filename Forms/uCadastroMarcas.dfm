@@ -4,8 +4,8 @@ object frmCadastroMarcas: TfrmCadastroMarcas
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Cadastro de Marcas'
-  ClientHeight = 560
-  ClientWidth = 782
+  ClientHeight = 559
+  ClientWidth = 838
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,8 +18,8 @@ object frmCadastroMarcas: TfrmCadastroMarcas
   object pnPrincipal: TPanel
     Left = 0
     Top = 0
-    Width = 782
-    Height = 488
+    Width = 838
+    Height = 487
     Margins.Left = 6
     Margins.Top = 6
     Margins.Right = 6
@@ -32,7 +32,7 @@ object frmCadastroMarcas: TfrmCadastroMarcas
     ExplicitHeight = 610
     object Label3: TLabel
       Left = 39
-      Top = 81
+      Top = 82
       Width = 12
       Height = 17
       Margins.Left = 4
@@ -40,7 +40,7 @@ object frmCadastroMarcas: TfrmCadastroMarcas
       Margins.Right = 4
       Margins.Bottom = 4
       Caption = 'ID'
-      FocusControl = DBEdit3
+      FocusControl = DBEdit_ID
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -49,8 +49,8 @@ object frmCadastroMarcas: TfrmCadastroMarcas
       ParentFont = False
     end
     object Label4: TLabel
-      Left = 367
-      Top = 83
+      Left = 191
+      Top = 82
       Width = 57
       Height = 17
       Margins.Left = 4
@@ -58,7 +58,7 @@ object frmCadastroMarcas: TfrmCadastroMarcas
       Margins.Right = 4
       Margins.Bottom = 4
       Caption = 'Descri'#231#227'o'
-      FocusControl = DBEdit4
+      FocusControl = DBEdit_Descricao
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -66,10 +66,10 @@ object frmCadastroMarcas: TfrmCadastroMarcas
       Font.Style = []
       ParentFont = False
     end
-    object DBEdit3: TDBEdit
+    object DBEdit_ID: TDBEdit
       Left = 39
       Top = 107
-      Width = 286
+      Width = 114
       Height = 25
       Margins.Left = 4
       Margins.Top = 4
@@ -86,8 +86,8 @@ object frmCadastroMarcas: TfrmCadastroMarcas
       ParentFont = False
       TabOrder = 0
     end
-    object DBEdit4: TDBEdit
-      Left = 367
+    object DBEdit_Descricao: TDBEdit
+      Left = 191
       Top = 107
       Width = 286
       Height = 25
@@ -105,7 +105,7 @@ object frmCadastroMarcas: TfrmCadastroMarcas
       ParentFont = False
       TabOrder = 1
     end
-    object DBCheckBox2: TDBCheckBox
+    object DBCheckBox_Inativo: TDBCheckBox
       Left = 39
       Top = 148
       Width = 194
@@ -128,7 +128,7 @@ object frmCadastroMarcas: TfrmCadastroMarcas
     object pnButtons: TPanel
       Left = 0
       Top = 0
-      Width = 782
+      Width = 838
       Height = 67
       Align = alTop
       BevelOuter = bvNone
@@ -137,7 +137,7 @@ object frmCadastroMarcas: TfrmCadastroMarcas
       TabOrder = 3
       ExplicitWidth = 813
       object btnExcluir: TSpeedButton
-        Left = 205
+        Left = 410
         Top = 0
         Width = 103
         Height = 67
@@ -153,9 +153,10 @@ object frmCadastroMarcas: TfrmCadastroMarcas
         Layout = blGlyphTop
         ParentFont = False
         OnClick = btnExcluirClick
+        ExplicitLeft = 205
       end
       object btnEditar: TSpeedButton
-        Left = 103
+        Left = 205
         Top = 0
         Width = 102
         Height = 67
@@ -171,9 +172,10 @@ object frmCadastroMarcas: TfrmCadastroMarcas
         Layout = blGlyphTop
         ParentFont = False
         OnClick = btnEditarClick
+        ExplicitLeft = 103
       end
       object btnSalvar: TSpeedButton
-        Left = 0
+        Left = 102
         Top = 0
         Width = 103
         Height = 67
@@ -189,9 +191,10 @@ object frmCadastroMarcas: TfrmCadastroMarcas
         Layout = blGlyphTop
         ParentFont = False
         OnClick = btnSalvarClick
+        ExplicitLeft = 0
       end
       object btnNovo: TSpeedButton
-        Left = 308
+        Left = 0
         Top = 0
         Width = 102
         Height = 67
@@ -207,9 +210,11 @@ object frmCadastroMarcas: TfrmCadastroMarcas
         Layout = blGlyphTop
         ParentFont = False
         OnClick = btnNovoClick
+        ExplicitLeft = -51
+        ExplicitTop = 7
       end
       object btnAnterior: TSpeedButton
-        Left = 410
+        Left = 513
         Top = 0
         Width = 102
         Height = 67
@@ -228,7 +233,7 @@ object frmCadastroMarcas: TfrmCadastroMarcas
         ExplicitLeft = 572
       end
       object btnProximo: TSpeedButton
-        Left = 512
+        Left = 615
         Top = 0
         Width = 102
         Height = 67
@@ -247,7 +252,7 @@ object frmCadastroMarcas: TfrmCadastroMarcas
         ExplicitLeft = 634
       end
       object btnSair: TSpeedButton
-        Left = 680
+        Left = 736
         Top = 0
         Width = 102
         Height = 67
@@ -266,11 +271,30 @@ object frmCadastroMarcas: TfrmCadastroMarcas
         ExplicitLeft = 711
         ExplicitHeight = 599
       end
+      object btnCancelar: TSpeedButton
+        Left = 307
+        Top = 0
+        Width = 103
+        Height = 67
+        Cursor = crHandPoint
+        Align = alLeft
+        Caption = 'Cancelar'
+        Flat = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -19
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        Layout = blGlyphTop
+        ParentFont = False
+        OnClick = btnCancelarClick
+        ExplicitLeft = 205
+      end
     end
     object PageControl1: TPageControl
       Left = 0
-      Top = 228
-      Width = 782
+      Top = 227
+      Width = 838
       Height = 260
       Margins.Left = 2
       Margins.Top = 2
@@ -285,6 +309,8 @@ object frmCadastroMarcas: TfrmCadastroMarcas
       Font.Style = []
       ParentFont = False
       TabOrder = 4
+      ExplicitTop = 228
+      ExplicitWidth = 782
       object TabSheet1: TTabSheet
         Margins.Left = 2
         Margins.Top = 2
@@ -300,7 +326,7 @@ object frmCadastroMarcas: TfrmCadastroMarcas
         object DBGrid1: TDBGrid
           Left = 0
           Top = 0
-          Width = 774
+          Width = 830
           Height = 224
           Margins.Left = 2
           Margins.Top = 2
@@ -364,8 +390,8 @@ object frmCadastroMarcas: TfrmCadastroMarcas
   end
   object pnBot: TPanel
     Left = 0
-    Top = 488
-    Width = 782
+    Top = 487
+    Width = 838
     Height = 72
     Margins.Left = 6
     Margins.Top = 6

@@ -4,6 +4,7 @@ interface
   uses
     System.SysUtils, System.Classes, Vcl.Controls, Vcl.Forms, Vcl.StdCtrls,
     Data.Win.ADODB, Data.DB, uConexoes, Winapi.Windows;
+
 function BuscaGrupo(const Grupo: string): Integer;
 function BuscarDescricaoGrupo(const IDGrupo: integer): string;
 

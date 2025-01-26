@@ -1,0 +1,50 @@
+unit uGerenciarBotoes;
+
+
+interface
+ uses
+    System.SysUtils, System.Classes, Vcl.Controls, Vcl.Forms, Vcl.StdCtrls,
+    Data.Win.ADODB, Data.DB, Winapi.Windows, Vcl.Buttons, System.StrUtils;
+
+procedure AtivarDesativarBotoes(const NomeBotao : string; const Botoes : array of TSpeedButton);
+
+implementation
+
+procedure AtivarDesativarBotoes(const NomeBotao : string; const Botoes : array of TSpeedButton);
+begin
+  case AnsiIndexStr(UpperCase(NomeBotao), ['INICIAL','NOVO', 'EDITAR']) of
+
+  0:begin
+     Botoes[0].Enabled := True;
+     Botoes[1].Enabled := False;
+     Botoes[2].Enabled := True;
+     Botoes[3].Enabled := False;
+     Botoes[4].Enabled := False;
+     Botoes[5].Enabled := True;
+     Botoes[6].Enabled := True;
+
+    end;
+
+  1:begin
+     Botoes[0].Enabled := False;
+     Botoes[1].Enabled := True;
+     Botoes[2].Enabled := False;
+     Botoes[3].Enabled := True;
+     Botoes[4].Enabled := False;
+     Botoes[5].Enabled := False;
+     Botoes[6].Enabled := False;
+
+    end;
+
+  2:begin
+     Botoes[0].Enabled := False;
+     Botoes[1].Enabled := True;
+     Botoes[2].Enabled := False;
+     Botoes[3].Enabled := True;
+     Botoes[4].Enabled := True;
+     Botoes[5].Enabled := False;
+     Botoes[6].Enabled := False;
+    end;
+  end;
+end;
+end.
