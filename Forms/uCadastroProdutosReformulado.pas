@@ -245,7 +245,7 @@ begin
     end;
 
   // Ativar campos e retornar para o Setup Inicial
-  SetupInicial();
+  uGerenciarProduto.AtivarDesativarBotoes('INICIAL', [btnNovo, btnEditar, btnSalvar, btnCancelar, btnExcluir, btnBuscar]);
   AtivarCampos(False);
 end;
 

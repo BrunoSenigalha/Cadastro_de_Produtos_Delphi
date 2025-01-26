@@ -6232,6 +6232,7 @@ object frmMain: TfrmMain
       Caption = 'Consulta'
       object Produtos2: TMenuItem
         Caption = 'Produtos'
+        OnClick = Produtos2Click
       end
     end
     object Sair1: TMenuItem

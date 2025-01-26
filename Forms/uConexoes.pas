@@ -39,6 +39,16 @@ type
     qrMarcasIDMarca: TAutoIncField;
     qrMarcasMarcaDescricao: TStringField;
     qrMarcasMarcaInativa: TBooleanField;
+    qrBuscaProdutos: TADOQuery;
+    qrBuscaProdutosIDProduto: TAutoIncField;
+    qrBuscaProdutosCodBarras: TStringField;
+    qrBuscaProdutosProdDescricao: TStringField;
+    qrBuscaProdutosProdGrupo: TIntegerField;
+    qrBuscaProdutosProdMarca: TIntegerField;
+    qrBuscaProdutosProdPreco: TBCDField;
+    qrBuscaProdutosProdQuantidade: TIntegerField;
+    qrBuscaProdutosProdInativo: TBooleanField;
+    dsBuscaProdutos: TDataSource;
   private
     { Private declarations }
   public

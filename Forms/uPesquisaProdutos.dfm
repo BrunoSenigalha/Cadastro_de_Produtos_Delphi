@@ -2,8 +2,8 @@ object frmPesquisaProdutos: TfrmPesquisaProdutos
   Left = 0
   Top = 0
   Caption = 'Pesquisar Produtos'
-  ClientHeight = 521
-  ClientWidth = 951
+  ClientHeight = 590
+  ClientWidth = 1080
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,86 +11,85 @@ object frmPesquisaProdutos: TfrmPesquisaProdutos
   Font.Name = 'Segoe UI'
   Font.Style = []
   TextHeight = 15
-  object PageControl1: TPageControl
+  object Panel1: TPanel
     Left = 0
-    Top = 270
-    Width = 951
-    Height = 251
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
-    ActivePage = TabSheet1
-    Align = alBottom
+    Top = 0
+    Width = 1080
+    Height = 91
+    Align = alTop
+    BevelOuter = bvNone
+    Color = 3355443
+    ParentBackground = False
     TabOrder = 0
-    ExplicitTop = 327
-    ExplicitWidth = 886
-    object TabSheet1: TTabSheet
-      Caption = 'Produtos'
-      object DBGrid1: TDBGrid
-        Left = 0
-        Top = 0
-        Width = 943
-        Height = 221
-        Align = alClient
-        Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
-        ReadOnly = True
-        TabOrder = 0
-        TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWindowText
-        TitleFont.Height = -12
-        TitleFont.Name = 'Segoe UI'
-        TitleFont.Style = []
-        Columns = <
-          item
-            Expanded = False
-            FieldName = 'IDProduto'
-            Width = 78
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'CodBarras'
-            Width = 101
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'ProdDescricao'
-            Width = 222
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'ProdGrupo'
-            Width = 129
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'ProdMarca'
-            Width = 131
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'ProdPreco'
-            Width = 123
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'ProdQuantidade'
-            Width = 152
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'ProdInativo'
-            Width = 107
-            Visible = True
-          end>
-      end
+    ExplicitWidth = 1238
+    object btnBuscar: TSpeedButton
+      Left = 0
+      Top = 0
+      Width = 113
+      Height = 91
+      Cursor = crHandPoint
+      Align = alLeft
+      Caption = 'BUSCAR'
+      Flat = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      Layout = blGlyphTop
+      ParentFont = False
     end
+    object btnSair: TSpeedButton
+      Left = 981
+      Top = 0
+      Width = 99
+      Height = 91
+      Cursor = crHandPoint
+      Align = alRight
+      Caption = 'Sair'
+      Flat = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      Layout = blGlyphTop
+      ParentFont = False
+      ExplicitLeft = 614
+      ExplicitHeight = 67
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 91
+    Width = 1080
+    Height = 240
+    Align = alClient
+    TabOrder = 1
+    ExplicitTop = 96
+    ExplicitWidth = 1238
+    ExplicitHeight = 382
+    object RadioGroup1: TRadioGroup
+      Left = 56
+      Top = 48
+      Width = 185
+      Height = 105
+      Caption = 'RadioGroup1'
+      TabOrder = 0
+    end
+  end
+  object DBGrid1: TDBGrid
+    Left = 0
+    Top = 331
+    Width = 1080
+    Height = 259
+    Align = alBottom
+    DataSource = dmConexoes.dsBuscaProdutos
+    TabOrder = 2
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -12
+    TitleFont.Name = 'Segoe UI'
+    TitleFont.Style = []
   end
 end

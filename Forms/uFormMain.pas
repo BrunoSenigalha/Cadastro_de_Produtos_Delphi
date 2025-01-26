@@ -5,7 +5,7 @@ interface
 uses
    Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Menus, uCadastroMarcas,
-  uConexoes, Vcl.Imaging.jpeg; // Adicionado uConexoes para acesso ao DataModule
+  uConexoes, Vcl.Imaging.jpeg, uPesquisaProdutos; // Adicionado uConexoes para acesso ao DataModule
 
 type
   TfrmMain = class(TForm)
@@ -24,6 +24,7 @@ type
     procedure Sair1Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Marca1Click(Sender: TObject);
+    procedure Produtos2Click(Sender: TObject);
   private
 
     { Private declarations }
@@ -81,6 +82,13 @@ begin
   CadastroProdutosRef.Free;
 end;
 
+
+procedure TfrmMain.Produtos2Click(Sender: TObject);
+begin
+  frmPesquisaProdutos:= TfrmPesquisaProdutos.Create(self);
+  frmPesquisaProdutos.ShowModal;
+  frmPesquisaProdutos.Free;
+end;
 
 procedure TfrmMain.Sair1Click(Sender: TObject);
 begin

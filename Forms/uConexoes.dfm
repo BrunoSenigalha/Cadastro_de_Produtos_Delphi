@@ -161,4 +161,56 @@ object dmConexoes: TdmConexoes
     Left = 529
     Top = 98
   end
+  object qrBuscaProdutos: TADOQuery
+    Active = True
+    Connection = SQLServerConnection
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'SELECT * FROM PRODUTOS')
+    Left = 632
+    Top = 400
+    object qrBuscaProdutosIDProduto: TAutoIncField
+      DisplayWidth = 10
+      FieldName = 'IDProduto'
+      ReadOnly = True
+    end
+    object qrBuscaProdutosCodBarras: TStringField
+      DisplayWidth = 13
+      FieldName = 'CodBarras'
+      Size = 13
+    end
+    object qrBuscaProdutosProdDescricao: TStringField
+      DisplayWidth = 59
+      FieldName = 'ProdDescricao'
+      Size = 150
+    end
+    object qrBuscaProdutosProdGrupo: TIntegerField
+      DisplayWidth = 26
+      FieldName = 'ProdGrupo'
+    end
+    object qrBuscaProdutosProdMarca: TIntegerField
+      DisplayWidth = 19
+      FieldName = 'ProdMarca'
+    end
+    object qrBuscaProdutosProdPreco: TBCDField
+      DisplayWidth = 18
+      FieldName = 'ProdPreco'
+      Precision = 5
+      Size = 2
+    end
+    object qrBuscaProdutosProdQuantidade: TIntegerField
+      DisplayWidth = 22
+      FieldName = 'ProdQuantidade'
+    end
+    object qrBuscaProdutosProdInativo: TBooleanField
+      DisplayWidth = 20
+      FieldName = 'ProdInativo'
+    end
+  end
+  object dsBuscaProdutos: TDataSource
+    DataSet = qrBuscaProdutos
+    Left = 624
+    Top = 496
+  end
 end
