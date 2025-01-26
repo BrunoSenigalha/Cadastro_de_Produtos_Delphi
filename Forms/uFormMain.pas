@@ -85,7 +85,7 @@ end;
 
 procedure TfrmMain.Produtos2Click(Sender: TObject);
 begin
-  frmPesquisaProdutos:= TfrmPesquisaProdutos.Create(self);
+  frmPesquisaProdutos := TfrmPesquisaProdutos.Create(self);
   frmPesquisaProdutos.ShowModal;
   frmPesquisaProdutos.Free;
 end;

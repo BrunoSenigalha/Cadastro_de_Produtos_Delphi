@@ -1,0 +1,51 @@
+unit uPesquisaProdutos;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
+  Vcl.ComCtrls, Vcl.ExtCtrls, uConexoes, Vcl.Buttons, Vcl.StdCtrls;
+
+type
+  TfrmPesquisaProdutos = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    DBGrid1: TDBGrid;
+    btnBuscar: TSpeedButton;
+    btnSair: TSpeedButton;
+    RadioGroup1: TRadioGroup;
+    procedure btnBuscarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPesquisaProdutos: TfrmPesquisaProdutos;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmPesquisaProdutos.btnBuscarClick(Sender: TObject);
+begin
+  with dmConexoes do
+  begin
+    qrBuscaProdutos.Active := false;
+    qrBuscaProdutos.Close;
+    qrBuscaProdutos.SQL.Clear;
+    qrBuscaProdutos.SQL.ADD('SELECT * FROM PRODUTOS ');
+
+    case RadioGroup1.ItemIndex of
+      1: qrBuscaProdutos.SQL.Append(' WHERE ProdInativo = 0');
+      2: qrBuscaProdutos.SQL.Append(' WHERE ProdInativo = 1')
+    end;
+    qrBuscaProdutos.Open;
+    qrBuscaProdutos.Active := true;
+  end;
+
+end;
+
+end.

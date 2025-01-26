@@ -49,6 +49,16 @@ type
     qrBuscaProdutosProdQuantidade: TIntegerField;
     qrBuscaProdutosProdInativo: TBooleanField;
     dsBuscaProdutos: TDataSource;
+    vwConsultaProdutos: TADOQuery;
+    vwConsultaProdutosIDProduto: TAutoIncField;
+    vwConsultaProdutosCodBarras: TStringField;
+    vwConsultaProdutosProdDescricao: TStringField;
+    vwConsultaProdutosProdGrupo: TIntegerField;
+    vwConsultaProdutosProdMarca: TIntegerField;
+    vwConsultaProdutosProdQuantidade: TIntegerField;
+    vwConsultaProdutosProdPreco: TBCDField;
+    vwConsultaProdutosProdInativo: TBooleanField;
+    dsConsProdutos: TDataSource;
   private
     { Private declarations }
   public

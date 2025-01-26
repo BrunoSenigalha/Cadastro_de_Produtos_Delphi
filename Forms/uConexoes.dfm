@@ -10,8 +10,8 @@ object dmConexoes: TdmConexoes
       'E'
     LoginPrompt = False
     Provider = 'SQLOLEDB.1'
-    Left = 160
-    Top = 112
+    Left = 136
+    Top = 144
   end
   object qrProdutos: TADOQuery
     Active = True
@@ -212,5 +212,49 @@ object dmConexoes: TdmConexoes
     DataSet = qrBuscaProdutos
     Left = 624
     Top = 496
+  end
+  object vwConsultaProdutos: TADOQuery
+    Active = True
+    Connection = SQLServerConnection
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'select * from produtos')
+    Left = 256
+    Top = 34
+    object vwConsultaProdutosIDProduto: TAutoIncField
+      FieldName = 'IDProduto'
+      ReadOnly = True
+    end
+    object vwConsultaProdutosCodBarras: TStringField
+      FieldName = 'CodBarras'
+      Size = 13
+    end
+    object vwConsultaProdutosProdDescricao: TStringField
+      FieldName = 'ProdDescricao'
+      Size = 50
+    end
+    object vwConsultaProdutosProdGrupo: TIntegerField
+      FieldName = 'ProdGrupo'
+    end
+    object vwConsultaProdutosProdMarca: TIntegerField
+      FieldName = 'ProdMarca'
+    end
+    object vwConsultaProdutosProdQuantidade: TIntegerField
+      FieldName = 'ProdQuantidade'
+    end
+    object vwConsultaProdutosProdPreco: TBCDField
+      FieldName = 'ProdPreco'
+      Precision = 5
+      Size = 2
+    end
+    object vwConsultaProdutosProdInativo: TBooleanField
+      FieldName = 'ProdInativo'
+    end
+  end
+  object dsConsProdutos: TDataSource
+    DataSet = vwConsultaProdutos
+    Left = 416
+    Top = 26
   end
 end
