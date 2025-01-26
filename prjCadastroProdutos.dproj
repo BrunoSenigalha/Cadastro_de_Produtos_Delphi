@@ -132,11 +132,6 @@
         <DCCReference Include="Forms\uGerenciarProduto.pas">
             <Form>$R *.res</Form>
         </DCCReference>
-        <DCCReference Include="Forms\uValidacaoCampos.pas"/>
-        <DCCReference Include="Forms\uCadastroProdutos.pas">
-            <Form>frmCadastroProdutos</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="Forms\uCadastroGrupos.pas">
             <Form>frmCadastroGrupos</Form>
             <FormType>dfm</FormType>

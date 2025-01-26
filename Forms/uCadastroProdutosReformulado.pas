@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Buttons, Vcl.StdCtrls,
   Vcl.ComCtrls, Data.DB, Vcl.Grids, Vcl.DBGrids, uConexoes, Datasnap.DBClient, uGerenciarProduto,
-  Vcl.DBCtrls, System.Math, uValidacaoCampos, uGerenciaGrupos, uGerenciaMarcas,
+  Vcl.DBCtrls, System.Math, uGerenciaGrupos, uGerenciaMarcas,
   uPesquisaCodBarras;
 
 type
@@ -30,10 +30,10 @@ type
     ed_preco: TEdit;
     Label5: TLabel;
     ed_quantidade: TEdit;
-    dbCBGrupo: TDBComboBox;
-    dbCBMarca: TDBComboBox;
     DBCheckBoxInativo: TDBCheckBox;
     btnBuscar: TSpeedButton;
+    dbCBMarca: TComboBox;
+    dbCBGrupo: TComboBox;
     procedure CarregarComboBoxGrupos;
     procedure CarregarComboBoxMarcas;
     procedure FormCreate(Sender: TObject);
@@ -46,6 +46,7 @@ type
     procedure btnBuscarClick(Sender: TObject);
     procedure ed_codbarrasKeyPress(Sender: TObject; var Key: Char);
     procedure ed_quantidadeKeyPress(Sender: TObject; var Key: Char);
+    procedure FormShow(Sender: TObject);
 
   private
     procedure LimparCampos();
@@ -111,20 +112,27 @@ begin
 
   AtivarCampos(False);
   SetupInicial();
+
+end;
+
+procedure TCadastroProdutosRef.FormShow(Sender: TObject);
+begin
+  AtivarCampos(False);
+  SetupInicial();
   CarregarComboBoxGrupos();
   CarregarComboBoxMarcas();
-
 end;
 
 procedure TCadastroProdutosRef.CarregarComboBoxGrupos;
 begin
   with dmConexoes do
   begin
-    if not dsGrupos.DataSet.Active then
-     dsGrupos.DataSet.Open;
-     dbCBGrupo.Items.Clear;
-     dsGrupos.DataSet.First;
+    dbCBGrupo.Items.Clear;
 
+   dsGrupos.DataSet.Close;
+   dsGrupos.DataSet.Open;
+
+   dsGrupos.DataSet.First;
     while not dsGrupos.DataSet.Eof do
     begin
       dbCBGrupo.Items.Add(dsGrupos.DataSet.FieldByName('GrupoDescricao').AsString);
@@ -137,9 +145,12 @@ procedure TCadastroProdutosRef.CarregarComboBoxMarcas;
 begin
   with dmConexoes do
   begin
-    dbCBMarca.Items.Clear;
-    dsMarcas.DataSet.First;
+     dbCBMarca.Items.Clear;
 
+     dsMarcas.DataSet.Close;
+     dsMarcas.DataSet.Open;
+
+     dsMarcas.DataSet.First;
     while not dsMarcas.DataSet.Eof do
       begin
         dbCBMarca.Items.Add(dsMarcas.DataSet.FieldByName('MarcaDescricao').AsString);
@@ -161,10 +172,8 @@ end;
 
 procedure TCadastroProdutosRef.btnCancelarClick(Sender: TObject);
 begin
-
   SetupInicial();
   AtivarCampos(False);
-
 end;
 
 procedure TCadastroProdutosRef.btnEditarClick(Sender: TObject);

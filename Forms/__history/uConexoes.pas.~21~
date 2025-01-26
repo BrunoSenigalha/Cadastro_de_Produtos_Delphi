@@ -1,0 +1,64 @@
+unit uConexoes;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.DB, Data.Win.ADODB;
+
+type
+  TdmConexoes = class(TDataModule)
+    SQLServerConnection: TADOConnection;
+    qrGrupos: TADOQuery;
+    qrMarcas: TADOQuery;
+    qrGruposIDGrupo: TAutoIncField;
+    qrGruposGrupoDescricao: TStringField;
+    qrGruposGrupoMaior18: TBooleanField;
+    qrGruposGrupoInativo: TBooleanField;
+    qrComando: TADOQuery;
+    qrProdutosGrid: TADOQuery;
+    AutoIncField1: TAutoIncField;
+    StringField1: TStringField;
+    StringField2: TStringField;
+    IntegerField1: TIntegerField;
+    IntegerField2: TIntegerField;
+    BCDField1: TBCDField;
+    IntegerField3: TIntegerField;
+    BooleanField1: TBooleanField;
+    dsGrupos: TDataSource;
+    dsMarcas: TDataSource;
+    dsProdutos: TDataSource;
+    qrProdutos: TADOQuery;
+    qrProdutosIDProduto: TAutoIncField;
+    qrProdutosCodBarras: TStringField;
+    qrProdutosProdDescricao: TStringField;
+    qrProdutosProdGrupo: TIntegerField;
+    qrProdutosProdMarca: TIntegerField;
+    qrProdutosProdPreco: TBCDField;
+    qrProdutosProdQuantidade: TIntegerField;
+    qrProdutosProdInativo: TBooleanField;
+    vwConsultaProdutos: TADOQuery;
+    vwConsultaProdutosIDProduto: TAutoIncField;
+    vwConsultaProdutosCodBarras: TStringField;
+    vwConsultaProdutosProdDescricao: TStringField;
+    vwConsultaProdutosProdGrupo: TIntegerField;
+    vwConsultaProdutosProdMarca: TIntegerField;
+    vwConsultaProdutosProdPreco: TBCDField;
+    vwConsultaProdutosProdQuantidade: TIntegerField;
+    vwConsultaProdutosProdInativo: TBooleanField;
+    dsConsProdutos: TDataSource;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  dmConexoes: TdmConexoes;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+end.

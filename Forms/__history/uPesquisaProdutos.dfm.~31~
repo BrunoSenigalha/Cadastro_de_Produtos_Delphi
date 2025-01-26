@@ -1,0 +1,116 @@
+object frmPesquisaProdutos: TfrmPesquisaProdutos
+  Left = 0
+  Top = 0
+  Caption = 'Pesquisar Produtos'
+  ClientHeight = 988
+  ClientWidth = 1427
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -18
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  Position = poDesktopCenter
+  TextHeight = 25
+  object DBGrid1: TDBGrid
+    Left = 0
+    Top = 648
+    Width = 1427
+    Height = 340
+    Align = alBottom
+    DataSource = dsConsultaProdutos
+    TabOrder = 0
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -18
+    TitleFont.Name = 'Segoe UI'
+    TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'IDProduto'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'CodBarras'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'ProdDescricao'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'ProdGrupo'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'ProdInativo'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'ProdMarca'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'ProdPreco'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'ProdQuantidade'
+        Visible = True
+      end>
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 1427
+    Height = 209
+    Align = alTop
+    Caption = 'Panel1'
+    TabOrder = 1
+    object btnConsultar: TButton
+      Left = 17
+      Top = 57
+      Width = 288
+      Height = 136
+      Caption = 'btnConsultar'
+      TabOrder = 0
+      OnClick = btnConsultarClick
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 209
+    Width = 1427
+    Height = 439
+    Align = alClient
+    Caption = 'Panel2'
+    TabOrder = 2
+    ExplicitTop = 203
+    object RadioGroup1: TRadioGroup
+      Left = 72
+      Top = 72
+      Width = 185
+      Height = 145
+      Caption = 'RadioGroup1'
+      ItemIndex = 0
+      Items.Strings = (
+        'Todos'
+        'Ativo'
+        'Inativo')
+      TabOrder = 0
+    end
+  end
+  object dsConsultaProdutos: TDataSource
+    DataSet = dmConexoes.vwConsultaProdutos
+    Left = 880
+    Top = 481
+  end
+end

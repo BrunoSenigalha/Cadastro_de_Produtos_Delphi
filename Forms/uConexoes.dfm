@@ -85,6 +85,17 @@ object dmConexoes: TdmConexoes
       'SELECT * FROM MARCAS')
     Left = 181
     Top = 489
+    object qrMarcasIDMarca: TAutoIncField
+      FieldName = 'IDMarca'
+      ReadOnly = True
+    end
+    object qrMarcasMarcaDescricao: TStringField
+      FieldName = 'MarcaDescricao'
+      Size = 50
+    end
+    object qrMarcasMarcaInativa: TBooleanField
+      FieldName = 'MarcaInativa'
+    end
   end
   object qrComando: TADOQuery
     Active = True

@@ -1,0 +1,205 @@
+object dmConexoes: TdmConexoes
+  Height = 858
+  Width = 1132
+  PixelsPerInch = 144
+  object SQLServerConnection: TADOConnection
+    Connected = True
+    ConnectionString = 
+      'Provider=SQLOLEDB.1;Password=@66E$Y$;Persist Security Info=True;' +
+      'User ID=SA;Initial Catalog=DBPRODUTOS;Data Source=DESKTOP-80QK7L' +
+      'E'
+    LoginPrompt = False
+    Provider = 'SQLOLEDB.1'
+    Left = 161
+    Top = 113
+  end
+  object qrGrupos: TADOQuery
+    Connection = SQLServerConnection
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'SELECT * FROM GRUPOS')
+    Left = 67
+    Top = 317
+    object qrGruposIDGrupo: TAutoIncField
+      FieldName = 'IDGrupo'
+      ReadOnly = True
+    end
+    object qrGruposGrupoDescricao: TStringField
+      FieldName = 'GrupoDescricao'
+      Size = 50
+    end
+    object qrGruposGrupoMaior18: TBooleanField
+      FieldName = 'GrupoMaior18'
+    end
+    object qrGruposGrupoInativo: TBooleanField
+      FieldName = 'GrupoInativo'
+    end
+  end
+  object qrMarcas: TADOQuery
+    Active = True
+    Connection = SQLServerConnection
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'SELECT * FROM MARCAS')
+    Left = 239
+    Top = 645
+  end
+  object qrComando: TADOQuery
+    Connection = SQLServerConnection
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'SELECT * FROM GRUPOS')
+    Left = 455
+    Top = 320
+  end
+  object qrProdutosGrid: TADOQuery
+    Connection = SQLServerConnection
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'SELECT * FROM PRODUTOS')
+    Left = 305
+    Top = 271
+    object AutoIncField1: TAutoIncField
+      FieldName = 'IDProduto'
+      ReadOnly = True
+    end
+    object StringField1: TStringField
+      FieldName = 'CodBarras'
+      Size = 13
+    end
+    object StringField2: TStringField
+      FieldName = 'ProdDescricao'
+      Size = 255
+    end
+    object IntegerField1: TIntegerField
+      FieldName = 'ProdGrupo'
+    end
+    object IntegerField2: TIntegerField
+      FieldName = 'ProdMarca'
+    end
+    object BCDField1: TBCDField
+      FieldName = 'ProdPreco'
+      Precision = 5
+      Size = 2
+    end
+    object IntegerField3: TIntegerField
+      FieldName = 'ProdQuantidade'
+    end
+    object BooleanField1: TBooleanField
+      FieldName = 'ProdInativo'
+    end
+  end
+  object dsGrupos: TDataSource
+    DataSet = qrGrupos
+    Left = 696
+    Top = 211
+  end
+  object dsProdutos: TDataSource
+    DataSet = qrProdutos
+    Left = 377
+    Top = 449
+  end
+  object qrProdutos: TADOQuery
+    Active = True
+    Connection = SQLServerConnection
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'SELECT * FROM PRODUTOS')
+    Left = 43
+    Top = 424
+    object qrProdutosIDProduto: TAutoIncField
+      DisplayLabel = 'ID'
+      DisplayWidth = 8
+      FieldName = 'IDProduto'
+      ReadOnly = True
+    end
+    object qrProdutosCodBarras: TStringField
+      DisplayLabel = 'C'#243'digo de Barras'
+      DisplayWidth = 19
+      FieldName = 'CodBarras'
+      Size = 13
+    end
+    object qrProdutosProdDescricao: TStringField
+      DisplayLabel = 'Descri'#231#227'o'
+      DisplayWidth = 16
+      FieldName = 'ProdDescricao'
+      Size = 255
+    end
+    object qrProdutosProdGrupo: TIntegerField
+      DisplayLabel = 'Grupo'
+      DisplayWidth = 15
+      FieldName = 'ProdGrupo'
+    end
+    object qrProdutosProdMarca: TIntegerField
+      DisplayLabel = 'Marca'
+      DisplayWidth = 18
+      FieldName = 'ProdMarca'
+    end
+    object qrProdutosProdPreco: TBCDField
+      DisplayLabel = 'Pre'#231'o'
+      DisplayWidth = 18
+      FieldName = 'ProdPreco'
+      Precision = 5
+      Size = 2
+    end
+    object qrProdutosProdQuantidade: TIntegerField
+      DisplayLabel = 'Quantidade'
+      DisplayWidth = 17
+      FieldName = 'ProdQuantidade'
+    end
+    object qrProdutosProdInativo: TBooleanField
+      DisplayLabel = 'Inativo'
+      DisplayWidth = 11
+      FieldName = 'ProdInativo'
+    end
+  end
+  object vwConsultaProdutos: TADOQuery
+    Active = True
+    Connection = SQLServerConnection
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'select * from produtos')
+    Left = 536
+    Top = 576
+    object vwConsultaProdutosIDProduto: TAutoIncField
+      FieldName = 'IDProduto'
+      ReadOnly = True
+    end
+    object vwConsultaProdutosCodBarras: TStringField
+      FieldName = 'CodBarras'
+      Size = 13
+    end
+    object vwConsultaProdutosProdDescricao: TStringField
+      FieldName = 'ProdDescricao'
+      Size = 50
+    end
+    object vwConsultaProdutosProdGrupo: TIntegerField
+      FieldName = 'ProdGrupo'
+    end
+    object vwConsultaProdutosProdMarca: TIntegerField
+      FieldName = 'ProdMarca'
+    end
+    object vwConsultaProdutosProdQuantidade: TIntegerField
+      FieldName = 'ProdQuantidade'
+    end
+    object vwConsultaProdutosProdPreco: TBCDField
+      FieldName = 'ProdPreco'
+      Precision = 5
+      Size = 2
+    end
+    object vwConsultaProdutosProdInativo: TBooleanField
+      FieldName = 'ProdInativo'
+    end
+  end
+  object dsConsProdutos: TDataSource
+    DataSet = vwConsultaProdutos
+    Left = 536
+    Top = 696
+  end
+end

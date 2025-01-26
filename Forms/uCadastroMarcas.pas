@@ -88,7 +88,7 @@ begin
   begin
     qrMarcas.Close;
     qrMarcas.SQL.Clear;
-    qrMarcas.SQL.Add('SELECT * FROM GRUPOS');
+    qrMarcas.SQL.Add('SELECT * FROM MARCAS');
     qrMarcas.Open;
     qrMarcas.First;
   end;

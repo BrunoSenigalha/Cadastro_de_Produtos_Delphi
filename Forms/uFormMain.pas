@@ -4,7 +4,7 @@ interface
 
 uses
    Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Menus, uCadastroProdutos, uCadastroMarcas,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Menus, uCadastroMarcas,
   uConexoes, Vcl.Imaging.jpeg; // Adicionado uConexoes para acesso ao DataModule
 
 type
@@ -19,7 +19,6 @@ type
     Produtos2: TMenuItem;
     Marca1: TMenuItem;
     procedure FormCreate(Sender: TObject);
-    procedure Produtos2Click(Sender: TObject);
     procedure Grupo1Click(Sender: TObject);
     procedure Produtos21Click(Sender: TObject);
     procedure Sair1Click(Sender: TObject);
@@ -82,13 +81,6 @@ begin
   CadastroProdutosRef.Free;
 end;
 
-procedure TfrmMain.Produtos2Click(Sender: TObject);
-begin
-  //Application.CreateForm(TfrmCadastroProdutos, frmCadastroProdutos);
-  frmCadastroProdutos:= TfrmCadastroProdutos.Create(self);
-  frmCadastroProdutos.ShowModal;
-  frmCadastroProdutos.Free;
-end;
 
 procedure TfrmMain.Sair1Click(Sender: TObject);
 begin

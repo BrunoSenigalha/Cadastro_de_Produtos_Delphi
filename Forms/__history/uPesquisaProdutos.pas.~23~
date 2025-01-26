@@ -1,0 +1,79 @@
+unit uPesquisaProdutos;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
+  Vcl.ComCtrls, Vcl.ExtCtrls, uConexoes, Vcl.StdCtrls, Vcl.DBCtrls, Vcl.Buttons;
+
+type
+  TfrmPesquisaProdutos = class(TForm)
+    PageControl1: TPageControl;
+    Panel1: TPanel;
+    Panel2: TPanel;
+    RG_FiltroAtivoInativo: TRadioGroup;
+    btnPesquisar: TSpeedButton;
+    DBGrid1: TDBGrid;
+    TabSheet1: TTabSheet;
+    edtCodBarras: TEdit;
+    procedure DBGrid1KeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure btnPesquisarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPesquisaProdutos: TfrmPesquisaProdutos;
+
+implementation
+
+uses
+  uCadastroProdutosReformulado;
+
+{$R *.dfm}
+
+procedure TfrmPesquisaProdutos.btnPesquisarClick(Sender: TObject);
+begin
+  with dmConexoes do
+  begin
+    qrProdutos.Close;
+    qrProdutos.SQL.Clear;
+    qrProdutos.SQL.Add('SELECT * FROM PRODUTOS WHERE IDProduto IS NOT NULL');
+
+    //Filtros
+    case RG_FiltroAtivoInativo.ItemIndex of
+      1: qrProdutos.SQL.Append(' AND ProdInativo = 0');
+      2: qrProdutos.SQL.Append(' AND ProdInativo = 1');
+    end;
+
+    if edtCodBarras.Text <> '' then
+      begin
+        qrProdutos.SQL.Append(' AND CodBarras LIKE :pCodBarras');
+        qrProdutos.Parameters.ParamByName('pCodBarras').Value := edtCodBarras.Text+ '%';
+      end;
+
+
+
+    qrProdutos.Open;
+  end;
+end;
+
+procedure TfrmPesquisaProdutos.DBGrid1KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if key = vk_F2 then
+    begin
+        CadastroProdutosRef:= TCadastroProdutosRef.Create(self);
+        CadastroProdutosRef.ShowModal;
+
+        // qrprodutos.fielByName('CodBarras').AsString;
+        CadastroProdutosRef.Free;
+    end;
+
+end;
+
+end.

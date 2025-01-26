@@ -14,7 +14,7 @@ procedure CarregaProdutos;
 procedure Excluir(codBarras : string);
 procedure AtivarDesativarBotoes(const NomeBotao : string; const Botoes : array of TSpeedButton);
 procedure PreencherCamposDefault(ed_codbarras, ed_descricao, ed_preco, ed_quantidade: TEdit; dbCBGrupo,
-  dbCBMarca : TDBComboBox; DBCheckBoxInativo: TDBCheckBox);
+  dbCBMarca : TComboBox; DBCheckBoxInativo: TDBCheckBox);
 function CampoVazio(): Boolean;
 
 implementation
@@ -101,7 +101,7 @@ begin
 end;
 
 procedure PreencherCamposDefault(ed_codbarras, ed_descricao, ed_preco, ed_quantidade: TEdit; dbCBGrupo,
-  dbCBMarca : TDBComboBox; DBCheckBoxInativo: TDBCheckBox);
+  dbCBMarca : TComboBox; DBCheckBoxInativo: TDBCheckBox);
 var
   IDGrupo, IDMarca: integer;
   Inativo : boolean;

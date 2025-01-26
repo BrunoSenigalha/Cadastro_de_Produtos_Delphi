@@ -1,0 +1,443 @@
+object CadastroProdutosRef: TCadastroProdutosRef
+  Left = 0
+  Top = 0
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'frmCadastroProdutosRef'
+  ClientHeight = 438
+  ClientWidth = 1024
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -14
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  KeyPreview = True
+  Position = poDesktopCenter
+  OnCreate = FormCreate
+  TextHeight = 19
+  object pnButtons: TPanel
+    Left = 0
+    Top = 0
+    Width = 1024
+    Height = 73
+    Margins.Left = 5
+    Margins.Top = 5
+    Margins.Right = 5
+    Margins.Bottom = 5
+    Align = alTop
+    BevelOuter = bvNone
+    Color = 3355443
+    ParentBackground = False
+    TabOrder = 0
+    object btnSalvar: TSpeedButton
+      Left = 109
+      Top = 0
+      Width = 117
+      Height = 73
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Align = alLeft
+      Caption = 'SALVAR'
+      Flat = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -20
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnSalvarClick
+      ExplicitLeft = -163
+      ExplicitTop = -10
+    end
+    object btnEditar: TSpeedButton
+      Left = 226
+      Top = 0
+      Width = 117
+      Height = 73
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Align = alLeft
+      Caption = 'EDITAR'
+      Flat = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -20
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnEditarClick
+      ExplicitLeft = 71
+      ExplicitTop = -10
+    end
+    object btnExcluir: TSpeedButton
+      Left = 460
+      Top = 0
+      Width = 117
+      Height = 73
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Align = alLeft
+      Caption = 'EXCLUIR'
+      Flat = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -20
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnExcluirClick
+      ExplicitLeft = 297
+      ExplicitTop = -10
+    end
+    object btnCancelar: TSpeedButton
+      Left = 343
+      Top = 0
+      Width = 117
+      Height = 73
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Align = alLeft
+      Caption = 'CALCELAR'
+      Flat = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -20
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnCancelarClick
+      ExplicitLeft = 71
+      ExplicitTop = -10
+    end
+    object btnSair: TSpeedButton
+      Left = 907
+      Top = 0
+      Width = 117
+      Height = 73
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Align = alRight
+      Caption = 'SAIR'
+      Flat = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -20
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnSairClick
+      ExplicitLeft = 744
+      ExplicitTop = -10
+    end
+    object btnBuscar: TSpeedButton
+      Left = 790
+      Top = 0
+      Width = 117
+      Height = 73
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Align = alRight
+      Caption = 'BUSCAR'
+      Flat = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -20
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnBuscarClick
+      ExplicitLeft = 744
+      ExplicitTop = -10
+    end
+    object btnNovo: TSpeedButton
+      Left = 0
+      Top = 0
+      Width = 109
+      Height = 73
+      Cursor = crHandPoint
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Align = alLeft
+      Caption = 'NOVO'
+      Flat = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -20
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnNovoClick
+      ExplicitLeft = -44
+    end
+  end
+  object pnPrincipal: TPanel
+    Left = 0
+    Top = 73
+    Width = 1024
+    Height = 365
+    Margins.Left = 5
+    Margins.Top = 5
+    Margins.Right = 5
+    Margins.Bottom = 5
+    Align = alClient
+    BevelOuter = bvNone
+    Color = clWhite
+    ParentBackground = False
+    TabOrder = 1
+    object lbCodBarras: TLabel
+      Left = 17
+      Top = 24
+      Width = 103
+      Height = 17
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Caption = 'C'#243'digo de Barras'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lbDescricao: TLabel
+      Left = 237
+      Top = 24
+      Width = 57
+      Height = 17
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Caption = 'Descri'#231#227'o'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lb_grupo: TLabel
+      Left = 516
+      Top = 21
+      Width = 37
+      Height = 17
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Caption = 'Grupo'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lb_marca: TLabel
+      Left = 741
+      Top = 21
+      Width = 37
+      Height = 17
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Caption = 'Marca'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label4: TLabel
+      Left = 17
+      Top = 97
+      Width = 33
+      Height = 17
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Caption = 'Pre'#231'o'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label5: TLabel
+      Left = 238
+      Top = 97
+      Width = 68
+      Height = 17
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Caption = 'Quantidade'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+    end
+    object ed_codbarras: TEdit
+      Left = 17
+      Top = 54
+      Width = 192
+      Height = 25
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+      OnKeyPress = ed_codbarrasKeyPress
+    end
+    object ed_descricao: TEdit
+      Left = 238
+      Top = 54
+      Width = 244
+      Height = 25
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 1
+    end
+    object ed_preco: TEdit
+      Left = 17
+      Top = 132
+      Width = 176
+      Height = 25
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 2
+    end
+    object ed_quantidade: TEdit
+      Left = 238
+      Top = 132
+      Width = 176
+      Height = 25
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 3
+      OnKeyPress = ed_quantidadeKeyPress
+    end
+    object pnBase: TPanel
+      Left = 0
+      Top = 286
+      Width = 1024
+      Height = 79
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Align = alBottom
+      BevelOuter = bvNone
+      Caption = 'Sistema de Cadastro'
+      Color = 3355443
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      ParentBackground = False
+      ParentFont = False
+      TabOrder = 4
+    end
+    object dbCBGrupo: TDBComboBox
+      Left = 516
+      Top = 54
+      Width = 189
+      Height = 25
+      DataField = 'GrupoDescricao'
+      DataSource = dmConexoes.dsGrupos
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 5
+    end
+    object dbCBMarca: TDBComboBox
+      Left = 741
+      Top = 54
+      Width = 189
+      Height = 25
+      DataField = 'MarcaDescricao'
+      DataSource = dmConexoes.dsMarcas
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 6
+    end
+    object DBCheckBoxInativo: TDBCheckBox
+      Left = 516
+      Top = 132
+      Width = 97
+      Height = 17
+      Caption = 'Inativo'
+      DataField = 'ProdInativo'
+      DataSource = dmConexoes.dsProdutos
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 7
+    end
+  end
+end

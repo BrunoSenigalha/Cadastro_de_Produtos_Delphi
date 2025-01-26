@@ -1,0 +1,61 @@
+object frmPesquisaProdutos: TfrmPesquisaProdutos
+  Left = 0
+  Top = 0
+  Caption = 'Pesquisar Produtos'
+  ClientHeight = 988
+  ClientWidth = 1427
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -18
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  Position = poDesktopCenter
+  TextHeight = 25
+  object DBGrid1: TDBGrid
+    Left = 0
+    Top = 590
+    Width = 1427
+    Height = 398
+    Align = alBottom
+    DataSource = dmConexoes.dsConsultaProdutos
+    TabOrder = 0
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -18
+    TitleFont.Name = 'Segoe UI'
+    TitleFont.Style = []
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 1427
+    Height = 209
+    Align = alTop
+    Caption = 'Panel1'
+    TabOrder = 1
+    object btnConsultar: TButton
+      Left = 1
+      Top = 1
+      Width = 424
+      Height = 207
+      Align = alLeft
+      Caption = 'btnConsultar'
+      TabOrder = 0
+      OnClick = btnConsultarClick
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 209
+    Width = 1427
+    Height = 381
+    Align = alClient
+    Caption = 'Panel2'
+    TabOrder = 2
+    ExplicitLeft = 632
+    ExplicitTop = 248
+    ExplicitWidth = 185
+    ExplicitHeight = 41
+  end
+end

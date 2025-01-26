@@ -36,6 +36,9 @@ type
     dsGrupos: TDataSource;
     dsMarcas: TDataSource;
     dsProdutos: TDataSource;
+    qrMarcasIDMarca: TAutoIncField;
+    qrMarcasMarcaDescricao: TStringField;
+    qrMarcasMarcaInativa: TBooleanField;
   private
     { Private declarations }
   public
